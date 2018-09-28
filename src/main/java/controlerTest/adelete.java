@@ -1,4 +1,4 @@
-package controler;
+package controlerTest;
 
 public class adelete {
 }
