@@ -11,12 +11,12 @@ public class Accelerometer extends Sensor {
     private ChartPanel panelAccelerometerGraph;
 
     public Accelerometer() {
-        data.setValue(10, "Accelerometer", "5");
-        data.setValue(5, "Accelerometer", "10");
-        data.setValue(0, "Accelerometer", "15");
-        data.setValue(-4, "Accelerometer", "20");
-        data.setValue(8, "Accelerometer", "25");
-        data.setValue(-10, "Accelerometer", "30");
+        data.setValue(100, "Accelerometer", "5");
+        data.setValue(90, "Accelerometer", "10");
+        data.setValue(75, "Accelerometer", "15");
+        data.setValue(50, "Accelerometer", "20");
+        data.setValue(20, "Accelerometer", "25");
+        data.setValue(2, "Accelerometer", "30");
         accelerometerGraph = ChartFactory.createLineChart("Accelerometer",
                 "Time (s)",
                 "Accelerometer g (m.s-²)",
