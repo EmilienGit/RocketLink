@@ -1,0 +1,19 @@
+
+P
+ src/main/java/model/adelete.java,2/c/2c01c8b34a93900f95c7f0d4d648171f26394526
+7
+pom.xml,4/4/442292b8a7efeabbe4cc176709b833b1792140ec
+>
+rocketLink.iml,d/6/d61860e1874922d237d6681d8d058d35aa2a85ec
+O
+src/main/java/view/adelete.java,1/3/13bf50725e4ec78d1ee53df6c0f301a0fc3349d9
+X
+(src/test/java/modelTest/adeleteTest.java,4/0/40bffbafe4cbea83cda2e82621b1dfbbf681a5c8
+T
+$src/main/java/controler/adelete.java,b/d/bd208796dfd9fc689e44b5dca9feba5143d164ef
+X
+(src/test/java/controler/adeleteTest.java,2/a/2a51b1aa604768a32669bae2d8ad59ed28737245
+W
+'src/test/java/viewTest/adeleteTest.java,5/1/51a0d7e08234344331599e585098f88593ebe2c8
+G
+src/main/resources/test,2/b/2b3846d91b137ca778177797792a562fce5dce4f
