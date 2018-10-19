@@ -1,0 +1,7 @@
+
+€squid:S1488"]Immediately return this expression instead of assigning it to the temporary variable "label".(ÍÑ¯üÿÿÿÿÿ8™å·°è,
+Psquid:S1068
+"2Remove this unused "lightIndicator" private field.(ÃÂËž8Ú±¦°è,
+;squid:S1700
+"Rename field "lightIndicator"(ÃÂËž8Ú±¦°è,
+wsquid:S00116"XRename this field "DEFAULT_COLOR" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(³ñöì8Ãù¬°è,
