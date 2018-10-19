@@ -1,9 +1,14 @@
 package view.ui;
 
 import javafx.scene.layout.Pane;
+import jiconfont.icons.FontAwesome;
+import jiconfont.swing.IconFontSwing;
+import model.JButtonToolBar;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 
 /**
  * @author Emilien
@@ -24,25 +29,36 @@ public class PanelToolBar extends JToolBar {
         setBackground(new Color(53,53,53));
         setFloatable(false);
 
-        JButton jButton = new JButton();
-        jButton.setText("Emi");
-        group.add(jButton);
-        this.add(jButton);
+        JButtonToolBar jButton1 = new JButtonToolBar("THERMOMETER_EMPTY");
+        jButton1.setToolTipText("Ogive temperature");
+        group.add(jButton1);
+        this.add(jButton1);
 
-        JButton jButton2 = new JButton();
-        jButton2.setText("Neo");
+        JButtonToolBar jButton2 = new JButtonToolBar("THERMOMETER_FULL");
+        jButton2.setToolTipText("Motor temperature");
         group.add(jButton2);
         this.add(jButton2);
 
-        JButton jButton3 = new JButton();
-        jButton3.setText("Flo");
+        JButtonToolBar jButton3 = new JButtonToolBar("TACHOMETER");
+        jButton3.setToolTipText("Accelerometer");
         group.add(jButton3);
         this.add(jButton3);
 
-        JButton jButton4 = new JButton();
-        jButton4.setText("Oreo");
+        JButtonToolBar jButton4 = new JButtonToolBar("SPACE_SHUTTLE");
+        jButton4.setToolTipText("Altimeter");
         group.add(jButton4);
         this.add(jButton4);
+
+        JButtonToolBar jButton5 = new JButtonToolBar("SAFARI");
+        jButton5.setToolTipText("Pressure");
+        group.add(jButton5);
+        this.add(jButton5);
+
+        JButtonToolBar jButton6 = new JButtonToolBar("COMPASS");
+        jButton6.setToolTipText("Magnetic Field");
+        group.add(jButton6);
+        this.add(jButton6);
+
     }
 
 }
