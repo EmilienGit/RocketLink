@@ -1,5 +1,0 @@
-
-Jsquid:S1948",Make "graphViews" transient or serializable.(€Ñì»8€ˆß‘æ,
-‰"squid:ClassVariableVisibilityCheck"TMake lastView a static final constant or non-public and provide accessors if needed.(ãœ›€8âË¢‘æ,
-‘squid:S1319"sThe type of the "lastView" object should be an interface such as "List" rather than the implementation "ArrayList".(ãœ›€8âË¢‘æ,
-asquid:UselessImportCheck"6Remove this unused import 'javax.swing.border.Border'.(þŒ©ƒ8ÈÖ¾Üè,

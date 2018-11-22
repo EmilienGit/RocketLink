@@ -21,6 +21,7 @@ public class MagneticField extends Sensor {
                 "Time (s)",
                 "Magnetic field B (G)",
                 data);
+        setVisibility(true);
         panelMagneticFieldGraph = new ChartPanel(magneticFieldGraph);
     }
 

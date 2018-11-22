@@ -2,10 +2,8 @@ package view.ui;
 
 import model.*;
 import org.jfree.chart.ChartPanel;
-import view.graphs.GraphView;
 
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,10 +16,10 @@ public class PanelGraph extends JPanel {
     private static final int DEFAULT_HEIGHT = 720;
     private static final Color DEFAULT_BACKGROUND_COLOR = new Color(43,43,43);
 
-    private List<GraphView> graphViews = new ArrayList<GraphView>();
+    private static List<Sensor> listSensors = new ArrayList<Sensor>();
+    private static List<ChartPanel> listPanelSensors = new ArrayList<ChartPanel>();
 
-    public ArrayList<GraphView> lastView;
-
+    private GridLayout gl = new GridLayout(2,3);
 
     public PanelGraph() {
         setPreferredSize(new Dimension(DEFAULT_WIDTH,DEFAULT_HEIGHT));
@@ -31,7 +29,6 @@ public class PanelGraph extends JPanel {
     }
 
     public void init(){
-        GridLayout gl = new GridLayout(2,3);
         setLayout(gl);
 
 
@@ -49,27 +46,59 @@ public class PanelGraph extends JPanel {
         ChartPanel panelAltimeter = altimeter.getPanelAltimeterGraph();
         ChartPanel panelAccelerometer = accelerometer.getPanelAccelerometerGraph();
 
-        add(panelAccelerometer);
-        add(panelAltimeter);
-        add(panelMagneticField);
-        add(panelPressure);
-        add(panelTemperatureMotor);
+        /**
+         * Add in the graph list
+         */
+        addGraphView(temperatureOgive);
+        addGraphView(temperatureMotor);
+        addGraphView(pressure);
+        addGraphView(magneticFieldSensor);
+        addGraphView(altimeter);
+        addGraphView(accelerometer);
+
+        /**
+         * Add in the panel sensor list
+         */
+        addGraphPanel(panelTemperatureOgive);
+        addGraphPanel(panelTemperatureMotor);
+        addGraphPanel(panelPressure);
+        addGraphPanel(panelMagneticField);
+        addGraphPanel(panelAltimeter);
+        addGraphPanel(panelAccelerometer);
+
+        /**
+         * Add in the panel
+         */
         add(panelTemperatureOgive);
+        add(panelTemperatureMotor);
+        add(panelPressure);
+        add(panelMagneticField);
+        add(panelAltimeter);
+        add(panelAccelerometer);
+
     }
 
-    public void addGraphView(GraphView theGraph){
-        graphViews.add(theGraph);
-        repaint();
+    public void addGraphView(Sensor theGraph){
+        listSensors.add(theGraph);
     }
 
-    public void removeGraphView(GraphView theGraph){
-        graphViews.remove(theGraph);
-        repaint();
+    public void removeGraphView(Sensor theGraph){
+        listSensors.remove(theGraph);
     }
 
+    public void addGraphPanel(ChartPanel theGraph){
+        listPanelSensors.add(theGraph);
+    }
 
+    public static void removeGraphPanel(ChartPanel theGraph){
+        listPanelSensors.remove(theGraph);
+    }
 
+    public static List<ChartPanel> getListPanelSensors() {
+        return listPanelSensors;
+    }
 
-
-
+    public static List<Sensor> getListSensors() {
+        return listSensors;
+    }
 }

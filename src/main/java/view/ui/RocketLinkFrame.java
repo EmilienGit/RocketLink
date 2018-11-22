@@ -32,7 +32,7 @@ public class RocketLinkFrame extends javax.swing.JFrame {
         this.getContentPane().add(tabs);
         this.setVisible(true);
         this.setIconImage(Toolkit.getDefaultToolkit()
-                .getImage("src\\main\\resources\\chocolatine.jpg"));
+                .getImage("src\\main\\resources\\Logo_transparent.png"));
 
     }
 

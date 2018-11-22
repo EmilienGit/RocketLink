@@ -1,0 +1,6 @@
+
+ysquid:S1450"[Remove the "panelToolBar" field and declare it as a local variable in the relevant methods.(ªΕ£8ο›Π»ο,
+gsquid:UselessImportCheck"<Remove this unused import 'controler.ActionAddRemoveSensor'.(ί‰©8…μΫρ,
+Tsquid:S2696"6Make the enclosing method "static" or remove this set.(¥ΟΉ¥8³ρμΫρ,
+Ssquid:S2209"5Change this instance-reference to a static reference.(¥ΟΉ¥8³ρμΫρ,
+Xsquid:S2209"5Change this instance-reference to a static reference.(Ζ²κ΅ώÿÿÿÿ8³ρμΫρ,

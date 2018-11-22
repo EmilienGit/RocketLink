@@ -45,6 +45,7 @@ public class Altimeter extends Sensor {
                 "Time (s)",
                 "Altimeter -> altitude (m)",
                 data);
+        setVisibility(true);
         panelAltimeterGraph = new ChartPanel(altimeterGraph);
     }
 

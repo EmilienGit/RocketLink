@@ -22,6 +22,7 @@ public class Accelerometer extends Sensor {
                 "Accelerometer g (m.s-²)",
                 data);
         panelAccelerometerGraph = new ChartPanel(accelerometerGraph);
+        setVisibility(true);
     }
 
     public JFreeChart getAccelerometerGraph() {
@@ -31,4 +32,5 @@ public class Accelerometer extends Sensor {
     public ChartPanel getPanelAccelerometerGraph() {
         return panelAccelerometerGraph;
     }
+
 }

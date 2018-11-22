@@ -29,6 +29,7 @@ public class Pressure extends Sensor {
                 "Time (s)",
                 "Temperature (°C)",
                 data);
+        setVisibility(true);
         panelPressureGraph = new ChartPanel(pressureGraph);
     }
 

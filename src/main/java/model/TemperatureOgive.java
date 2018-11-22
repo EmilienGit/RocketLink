@@ -24,7 +24,7 @@ public class TemperatureOgive extends Sensor{
         data.setValue(15,"Temperature","20");
         data.setValue(14,"Temperature","25");
         data.setValue(12,"Temperature","30");
-        temperatureOgiveGraph = ChartFactory.createLineChart("Temperature ogive",
+        temperatureOgiveGraph = ChartFactory.createLineChart("Ogive temperature",
                 "Time (s)",
                 "Temperature (°C)",
                 data);
@@ -32,10 +32,11 @@ public class TemperatureOgive extends Sensor{
     }
 
     public TemperatureOgive(DefaultCategoryDataset data){
-        temperatureOgiveGraph = ChartFactory.createLineChart("Temperature ogive",
+        temperatureOgiveGraph = ChartFactory.createLineChart("Ogive temperature",
                 "Time (s)",
                 "Temperature (°C)",
                 data);
+        setVisibility(true);
         panelTeamperatureOgiveGraph = new ChartPanel(temperatureOgiveGraph);
     }
 

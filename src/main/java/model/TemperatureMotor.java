@@ -20,15 +20,16 @@ public class TemperatureMotor extends Sensor {
         data.setValue(15, "Teamperature", "20");
         data.setValue(10, "Teamperature", "25");
         data.setValue(5, "Teamperature", "30");
-        temperatureMotorGraph = ChartFactory.createLineChart("Temperature motor",
+        temperatureMotorGraph = ChartFactory.createLineChart("Motor temperature",
                 "Time (s)",
                 "Temperature (°C)",
                 data);
+        setVisibility(true);
         panelTeamperatureMotorGraph = new ChartPanel(temperatureMotorGraph);
     }
 
     public TemperatureMotor(DefaultCategoryDataset data) {
-        temperatureMotorGraph = ChartFactory.createLineChart("Temperature ogive",
+        temperatureMotorGraph = ChartFactory.createLineChart("Motor temperature",
                 "Time (s)",
                 "Temperature (°C)",
                 data);

@@ -1,20 +1,21 @@
 package view.ui;
 
-import javafx.scene.layout.Pane;
+import controler.ActionAddRemoveSensor;
 import jiconfont.icons.FontAwesome;
 import jiconfont.swing.IconFontSwing;
 import model.JButtonToolBar;
+import model.Sensor;
+import org.jfree.chart.ChartPanel;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.io.IOException;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  * @author Emilien
  */
 public class PanelToolBar extends JToolBar {
-    public String graphName;
     public ButtonGroup group = new ButtonGroup();
 
     public PanelToolBar(){
@@ -29,36 +30,57 @@ public class PanelToolBar extends JToolBar {
         setBackground(new Color(53,53,53));
         setFloatable(false);
 
-        JButtonToolBar jButton1 = new JButtonToolBar("THERMOMETER_EMPTY");
-        jButton1.setToolTipText("Ogive temperature");
-        group.add(jButton1);
-        this.add(jButton1);
+        final String[] iconButtonList = {"THERMOMETER_EMPTY","THERMOMETER_FULL","SAFARI","COMPASS","SPACE_SHUTTLE","TACHOMETER",};
+        String[] resumeButtonList = {"Ogive temperature","Motor temperature","Pressure","Magnetic Field","Altimeter","Accelerometer"};
 
-        JButtonToolBar jButton2 = new JButtonToolBar("THERMOMETER_FULL");
-        jButton2.setToolTipText("Motor temperature");
-        group.add(jButton2);
-        this.add(jButton2);
+        for(int i = 0; i < iconButtonList.length; i++){
+            final Sensor sensor  = PanelGraph.getListSensors().get(i);
+            final ChartPanel chartPanel = PanelGraph.getListPanelSensors().get(i);
+            final JButtonToolBar jButton = new JButtonToolBar(iconButtonList[i]);
+            jButton.setToolTipText(resumeButtonList[i]);
+            jButton.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    ActionAddRemoveSensor actionAddRemoveSensor = new ActionAddRemoveSensor();
+                    actionAddRemoveSensor.addRemoveSensor(PanelTabGraph.getPanelGraph(),
+                            chartPanel,
+                            sensor);
+                }
+            });
+            group.add(jButton);
+            this.add(jButton);
+        }
 
-        JButtonToolBar jButton3 = new JButtonToolBar("TACHOMETER");
-        jButton3.setToolTipText("Accelerometer");
+        final JButtonToolBar jButton3 = new JButtonToolBar("PLUS_CIRCLE");
+        jButton3.setToolTipText("Add every sensors");
+        jButton3.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                ActionAddRemoveSensor actionAddRemoveSensor = new ActionAddRemoveSensor();
+                actionAddRemoveSensor.addAllSensors(PanelTabGraph.getPanelGraph(),
+                        PanelGraph.getListPanelSensors(),
+                        PanelGraph.getListSensors());
+            }
+        });
         group.add(jButton3);
         this.add(jButton3);
 
-        JButtonToolBar jButton4 = new JButtonToolBar("SPACE_SHUTTLE");
-        jButton4.setToolTipText("Altimeter");
-        group.add(jButton4);
-        this.add(jButton4);
+        final JButtonToolBar jButton2 = new JButtonToolBar("MINUS_CIRCLE");
+        jButton2.setToolTipText("Remove every sensors");
+        jButton2.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                ActionAddRemoveSensor actionAddRemoveSensor = new ActionAddRemoveSensor();
+                actionAddRemoveSensor.removeAllSensors(PanelTabGraph.getPanelGraph(),
+                        PanelGraph.getListPanelSensors(),
+                        PanelGraph.getListSensors());
+            }
+        });
+        group.add(jButton2);
+        this.add(jButton2);
 
-        JButtonToolBar jButton5 = new JButtonToolBar("SAFARI");
-        jButton5.setToolTipText("Pressure");
-        group.add(jButton5);
-        this.add(jButton5);
 
-        JButtonToolBar jButton6 = new JButtonToolBar("COMPASS");
-        jButton6.setToolTipText("Magnetic Field");
-        group.add(jButton6);
-        this.add(jButton6);
+    }
 
+    public ButtonGroup getGroup() {
+        return group;
     }
 
 }

@@ -1,8 +1,4 @@
 
-"squid:ClassVariableVisibilityCheck"UMake graphName a static final constant or non-public and provide accessors if needed.(´ø·‰úÿÿÿÿ8›÷·‘æ,
-csquid:UselessImportCheck"8Remove this unused import 'jiconfont.icons.FontAwesome'.(œ…éô8ñäâè,
-‹"squid:ClassVariableVisibilityCheck"QMake group a static final constant or non-public and provide accessors if needed.(õß®“şÿÿÿÿ8›÷·‘æ,
-jsquid:UselessImportCheck":Remove this unused import 'jiconfont.swing.IconFontSwing'.(£—¯äûÿÿÿÿ8ñäâè,
-]squid:UselessImportCheck"2Remove this unused import 'javax.imageio.ImageIO'.(‘çÔû8ò€¢İè,
-`squid:UselessImportCheck"0Remove this unused import 'java.io.IOException'.(ªº»Úıÿÿÿÿ8ò€¢İè,
-esquid:UselessImportCheck"5Remove this unused import 'javafx.scene.layout.Pane'.(êÄƒÄşÿÿÿÿ8›÷·‘æ,
+‹"squid:ClassVariableVisibilityCheck"QMake group a static final constant or non-public and provide accessors if needed.(õß®“şÿÿÿÿ8›÷·‘æ,
+jsquid:UselessImportCheck":Remove this unused import 'jiconfont.swing.IconFontSwing'.(£—¯äûÿÿÿÿ8 „úßñ,
+csquid:UselessImportCheck"8Remove this unused import 'jiconfont.icons.FontAwesome'.(œ…éô8 „úßñ,
