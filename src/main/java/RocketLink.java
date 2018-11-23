@@ -1,4 +1,4 @@
-import view.ui.RocketLinkFrame;
+import view.ui.FrameRocketLink;
 
 /**
  * @Author Emilien
@@ -10,7 +10,7 @@ public class RocketLink {
      */
     public static void main(String[] args) {
         try {
-            RocketLinkFrame.getInstance();
+            FrameRocketLink.getInstance();
         } catch (Exception e) {
             System.out.println(e);
         }

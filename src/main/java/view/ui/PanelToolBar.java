@@ -1,8 +1,6 @@
 package view.ui;
 
 import controler.ActionAddRemoveSensor;
-import jiconfont.icons.FontAwesome;
-import jiconfont.swing.IconFontSwing;
 import model.JButtonToolBar;
 import model.Sensor;
 import org.jfree.chart.ChartPanel;

@@ -7,10 +7,10 @@ import java.awt.*;
 /**
  * @Author Emilien
  */
-public class RocketLinkFrame extends javax.swing.JFrame {
+public class FrameRocketLink extends javax.swing.JFrame {
     private static final String DEFAULT_TITLE = "RocketIcon";
 
-    private static RocketLinkFrame instance = new RocketLinkFrame();
+    private static FrameRocketLink instance = new FrameRocketLink();
     private PanelTabRocket panelTabRocket = new PanelTabRocket();
     private PanelTabGraph panelTabGraph = new PanelTabGraph();
     private JTabbedPane tabs = new JTabbedPane();
@@ -18,7 +18,7 @@ public class RocketLinkFrame extends javax.swing.JFrame {
     /**
      * Settings of the frame
      */
-    private RocketLinkFrame() {
+    private FrameRocketLink() {
         this.setTitle(DEFAULT_TITLE);
         this.setSize(new Dimension(1200,800));
         this.setLocationRelativeTo(null);
@@ -32,11 +32,11 @@ public class RocketLinkFrame extends javax.swing.JFrame {
         this.getContentPane().add(tabs);
         this.setVisible(true);
         this.setIconImage(Toolkit.getDefaultToolkit()
-                .getImage("src\\main\\resources\\Logo_transparent.png"));
+                .getImage("src\\main\\resources\\Images\\Logo_transparent.png"));
 
     }
 
-    public static RocketLinkFrame getInstance(){
+    public static FrameRocketLink getInstance(){
         return instance;
     }
 
