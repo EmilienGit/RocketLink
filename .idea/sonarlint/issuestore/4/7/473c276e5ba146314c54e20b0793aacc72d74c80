@@ -1,5 +1,0 @@
-
-ksquid:S1192"MDefine a constant instead of duplicating this literal "Teamperature" 6 times.(ùş„¨8Ó®û×è,
-csquid:UselessImportCheck	"8Remove this unused import 'org.jfree.data.xy.XYDataset'.(Øôã×8 ¹Ùè,
-qsquid:UselessImportCheck"FRemove this unused import 'org.jfree.data.general.DatasetChangeEvent'.(¶˜ÊÙ8õ™Ùè,
-tsquid:UselessImportCheck"IRemove this unused import 'org.jfree.data.general.DatasetChangeListener'.(ªÉ¶×8õ™Ùè,
