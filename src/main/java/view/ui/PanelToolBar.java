@@ -22,7 +22,7 @@ public class PanelToolBar extends JToolBar {
     }
 
     private void initComponents(){
-        setPreferredSize(new Dimension(50,720));
+        setPreferredSize(new Dimension(50,620));
         setLayout(new GridLayout(25,1));
         setOrientation(JToolBar.VERTICAL);
         setBackground(new Color(53,53,53));

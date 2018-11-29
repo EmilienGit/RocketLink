@@ -10,8 +10,8 @@ import java.awt.*;
 
 
 public class PanelRocket extends JPanel {
-    private static final int DEFAULT_WIDTH = 1180;
-    private static final int DEFAULT_HEIGHT = 720;
+    private static final int DEFAULT_WIDTH = 1080;
+    private static final int DEFAULT_HEIGHT = 620;
     private static final Color DEFAULT_BACKGROUND_COLOR = new Color(43,43,43);
 
     public PanelRocket() {

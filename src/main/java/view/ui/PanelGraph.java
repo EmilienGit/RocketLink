@@ -12,8 +12,8 @@ import java.util.List;
  * @author Emilien
  */
 public class PanelGraph extends JPanel {
-    private static final int DEFAULT_WIDTH = 1120;
-    private static final int DEFAULT_HEIGHT = 720;
+    private static final int DEFAULT_WIDTH = 1020;
+    private static final int DEFAULT_HEIGHT = 620;
     private static final Color DEFAULT_BACKGROUND_COLOR = new Color(43,43,43);
 
     private static List<Sensor> listSensors = new ArrayList<Sensor>();
