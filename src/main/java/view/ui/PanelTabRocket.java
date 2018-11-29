@@ -8,8 +8,8 @@ import javax.swing.*;
 import java.awt.*;
 
 public class PanelTabRocket extends JPanel {
-    private static final int DEFAULT_WIDTH = 1100;
-    private static final int DEFAULT_HEIGHT = 700;
+    private static final int DEFAULT_WIDTH = 1000;
+    private static final int DEFAULT_HEIGHT = 600;
     private static final Color DEFAULT_BACKGROUND_COLOR = new Color(63,63,63);
 
     private PanelRocket panelRocket;

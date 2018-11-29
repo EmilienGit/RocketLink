@@ -20,7 +20,7 @@ public class FrameRocketLink extends javax.swing.JFrame {
      */
     private FrameRocketLink() {
         this.setTitle(DEFAULT_TITLE);
-        this.setSize(new Dimension(1200,800));
+        this.setSize(new Dimension(1100,700));
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(false);
@@ -32,7 +32,7 @@ public class FrameRocketLink extends javax.swing.JFrame {
         this.getContentPane().add(tabs);
         this.setVisible(true);
         this.setIconImage(Toolkit.getDefaultToolkit()
-                .getImage("src\\main\\resources\\Images\\Logo_transparent.png"));
+                .getImage("src/main/resources/Images/Logo_transparent.png"));
 
     }
 
