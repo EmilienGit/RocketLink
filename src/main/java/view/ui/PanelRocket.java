@@ -21,7 +21,7 @@ public class PanelRocket extends JPanel {
 
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        ImageIcon rocket = new ImageIcon("src\\main\\resources\\Images\\Fusex.png");
+        ImageIcon rocket = new ImageIcon("src/main/resources/Images/Fusex.png");
         Image myRocket = rocket.getImage();
         g.drawImage(myRocket, 0, 0, this);
     }
