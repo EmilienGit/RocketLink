@@ -8,7 +8,7 @@ import java.awt.*;
  * @Author Emilien
  */
 public class FrameRocketLink extends javax.swing.JFrame {
-    private static final String DEFAULT_TITLE = "RocketIcon";
+    private static final String DEFAULT_TITLE = "RocketLink";
 
     private static FrameRocketLink instance = new FrameRocketLink();
     private PanelTabRocket panelTabRocket = new PanelTabRocket();
