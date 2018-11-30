@@ -5,11 +5,20 @@ import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.data.category.DefaultCategoryDataset;
 
-public class Accelerometer extends Sensor {
+/**
+ * @author Emilien
+ */
+public class Accelerometer extends AbstractSensor {
+
     private DefaultCategoryDataset data = new DefaultCategoryDataset();
+
     private JFreeChart accelerometerGraph;
+
     private ChartPanel panelAccelerometerGraph;
 
+    /**
+     * Constructeur de l'Accelerometer avec ses valeurs
+     */
     public Accelerometer() {
         data.setValue(100, "Accelerometer", "5");
         data.setValue(90, "Accelerometer", "10");
@@ -25,10 +34,18 @@ public class Accelerometer extends Sensor {
         setVisibility(true);
     }
 
+    /**
+     * Getter
+     * @return le graph de l'accelerometer
+     */
     public JFreeChart getAccelerometerGraph() {
         return accelerometerGraph;
     }
 
+    /**
+     * Getter
+     * @return le panneau de l'accelerometer
+     */
     public ChartPanel getPanelAccelerometerGraph() {
         return panelAccelerometerGraph;
     }

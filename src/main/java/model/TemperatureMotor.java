@@ -4,11 +4,8 @@ import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.data.category.DefaultCategoryDataset;
-import org.jfree.data.general.DatasetChangeEvent;
-import org.jfree.data.general.DatasetChangeListener;
-import org.jfree.data.xy.XYDataset;
 
-public class TemperatureMotor extends Sensor {
+public class TemperatureMotor extends AbstractSensor {
     private DefaultCategoryDataset data = new DefaultCategoryDataset();
     private JFreeChart temperatureMotorGraph;
     private ChartPanel panelTeamperatureMotorGraph;

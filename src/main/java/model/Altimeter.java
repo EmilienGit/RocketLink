@@ -5,11 +5,19 @@ import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.data.category.DefaultCategoryDataset;
 
-public class Altimeter extends Sensor {
+/**
+ * @author Emilien
+ */
+public class Altimeter extends AbstractSensor {
     private DefaultCategoryDataset data = new DefaultCategoryDataset();
+
     private JFreeChart altimeterGraph;
+
     private ChartPanel panelAltimeterGraph;
 
+    /**
+     * Constructeur de l'altimetre et ses valeurs
+     */
     public Altimeter() {
         data.setValue(150, "Altimeter", "1");
         data.setValue(250, "Altimeter", "2");
@@ -49,10 +57,18 @@ public class Altimeter extends Sensor {
         panelAltimeterGraph = new ChartPanel(altimeterGraph);
     }
 
+    /**
+     * Getter
+     * @return altimeterGraph
+     */
     public JFreeChart getAltimeterGraph() {
         return altimeterGraph;
     }
 
+    /**
+     * Getter
+     * @return panelAltimeterGraph
+     */
     public ChartPanel getPanelAltimeterGraph() {
         return panelAltimeterGraph;
     }

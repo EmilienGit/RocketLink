@@ -6,7 +6,7 @@ import org.jfree.chart.JFreeChart;
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.xy.XYDataset;
 
-public class TemperatureOgive extends Sensor{
+public class TemperatureOgive extends AbstractSensor {
     private DefaultCategoryDataset data = new DefaultCategoryDataset();
     private JFreeChart temperatureOgiveGraph;
     private ChartPanel panelTeamperatureOgiveGraph;

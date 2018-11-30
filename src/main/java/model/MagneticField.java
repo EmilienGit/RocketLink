@@ -5,11 +5,19 @@ import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.data.category.DefaultCategoryDataset;
 
-public class MagneticField extends Sensor {
+/**
+ * @author Emilien
+ */
+public class MagneticField extends AbstractSensor {
     private DefaultCategoryDataset data = new DefaultCategoryDataset();
+
     private JFreeChart magneticFieldGraph;
+
     private ChartPanel panelMagneticFieldGraph;
 
+    /**
+     * Constructeur
+     */
     public MagneticField() {
         data.setValue(-10, "Magnetic field", "5");
         data.setValue(5, "Magnetic field", "10");
@@ -25,10 +33,18 @@ public class MagneticField extends Sensor {
         panelMagneticFieldGraph = new ChartPanel(magneticFieldGraph);
     }
 
+    /**
+     * Getter
+     * @return magneticFieldGraph
+     */
     public JFreeChart getMagneticFieldGraph() {
         return magneticFieldGraph;
     }
 
+    /**
+     * Getter
+     * @return panelMagneticFieldGraph
+     */
     public ChartPanel getPanelMagneticFieldGraph() {
         return panelMagneticFieldGraph;
     }

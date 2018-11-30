@@ -1,9 +1,17 @@
 import view.ui.FrameRocketLink;
 
 /**
- * @Author Emilien
+ * @author Emilien
  */
 public class RocketLink {
+
+    /**
+     * Constructeur checkStyle
+     */
+    public RocketLink() {
+
+    }
+
     /**
      *
      * @param args my args

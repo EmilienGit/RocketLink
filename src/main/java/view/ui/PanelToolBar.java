@@ -2,7 +2,7 @@ package view.ui;
 
 import controler.ActionAddRemoveSensor;
 import model.JButtonToolBar;
-import model.Sensor;
+import model.AbstractSensor;
 import org.jfree.chart.ChartPanel;
 
 import javax.swing.*;
@@ -32,7 +32,7 @@ public class PanelToolBar extends JToolBar {
         String[] resumeButtonList = {"Ogive temperature","Motor temperature","Pressure","Magnetic Field","Altimeter","Accelerometer"};
 
         for(int i = 0; i < iconButtonList.length; i++){
-            final Sensor sensor  = PanelGraph.getListSensors().get(i);
+            final AbstractSensor abstractSensor = PanelGraph.getListAbstractSensors().get(i);
             final ChartPanel chartPanel = PanelGraph.getListPanelSensors().get(i);
             final JButtonToolBar jButton = new JButtonToolBar(iconButtonList[i]);
             jButton.setToolTipText(resumeButtonList[i]);
@@ -41,7 +41,7 @@ public class PanelToolBar extends JToolBar {
                     ActionAddRemoveSensor actionAddRemoveSensor = new ActionAddRemoveSensor();
                     actionAddRemoveSensor.addRemoveSensor(PanelTabGraph.getPanelGraph(),
                             chartPanel,
-                            sensor);
+                            abstractSensor);
                 }
             });
             group.add(jButton);
@@ -55,7 +55,7 @@ public class PanelToolBar extends JToolBar {
                 ActionAddRemoveSensor actionAddRemoveSensor = new ActionAddRemoveSensor();
                 actionAddRemoveSensor.addAllSensors(PanelTabGraph.getPanelGraph(),
                         PanelGraph.getListPanelSensors(),
-                        PanelGraph.getListSensors());
+                        PanelGraph.getListAbstractSensors());
             }
         });
         group.add(jButton3);
@@ -68,7 +68,7 @@ public class PanelToolBar extends JToolBar {
                 ActionAddRemoveSensor actionAddRemoveSensor = new ActionAddRemoveSensor();
                 actionAddRemoveSensor.removeAllSensors(PanelTabGraph.getPanelGraph(),
                         PanelGraph.getListPanelSensors(),
-                        PanelGraph.getListSensors());
+                        PanelGraph.getListAbstractSensors());
             }
         });
         group.add(jButton2);
