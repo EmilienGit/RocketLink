@@ -19,7 +19,7 @@ public class LightIndicator {
      * Constructeur
      */
     public LightIndicator() {
-
+        super();
     }
 
     /**
@@ -29,8 +29,7 @@ public class LightIndicator {
     public JLabel getLabelLightIndicator() {
         IconFontSwing.register(FontAwesome.getIconFont());
         Icon icon = IconFontSwing.buildIcon(FontAwesome.EERCAST, 20, DEFAULT_COLOR);
-        JLabel label = new JLabel(icon);
-        return label;
+        return new JLabel(icon);
     }
 
     /**

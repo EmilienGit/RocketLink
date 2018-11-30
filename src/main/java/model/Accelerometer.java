@@ -16,17 +16,19 @@ public class Accelerometer extends AbstractSensor {
 
     private ChartPanel panelAccelerometerGraph;
 
+    private String name = "Accelerometer";
+
     /**
      * Constructeur de l'Accelerometer avec ses valeurs
      */
     public Accelerometer() {
-        data.setValue(100, "Accelerometer", "5");
-        data.setValue(90, "Accelerometer", "10");
-        data.setValue(75, "Accelerometer", "15");
-        data.setValue(50, "Accelerometer", "20");
-        data.setValue(20, "Accelerometer", "25");
-        data.setValue(2, "Accelerometer", "30");
-        accelerometerGraph = ChartFactory.createLineChart("Accelerometer",
+        data.setValue(100, name, "5");
+        data.setValue(90, name, "10");
+        data.setValue(75, name, "15");
+        data.setValue(50, name, "20");
+        data.setValue(20, name, "25");
+        data.setValue(2, name, "30");
+        accelerometerGraph = ChartFactory.createLineChart(name,
                 "Time (s)",
                 "Accelerometer g (m.s-²)",
                 data);

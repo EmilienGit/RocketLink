@@ -10,13 +10,15 @@ public class TemperatureMotor extends AbstractSensor {
     private JFreeChart temperatureMotorGraph;
     private ChartPanel panelTeamperatureMotorGraph;
 
+    private String name = "Teamperature";
+
     public TemperatureMotor() {
-        data.setValue(28, "Teamperature", "5");
-        data.setValue(27, "Teamperature", "10");
-        data.setValue(20, "Teamperature", "15");
-        data.setValue(15, "Teamperature", "20");
-        data.setValue(10, "Teamperature", "25");
-        data.setValue(5, "Teamperature", "30");
+        data.setValue(28, name, "5");
+        data.setValue(27, name, "10");
+        data.setValue(20, name, "15");
+        data.setValue(15, name, "20");
+        data.setValue(10, name, "25");
+        data.setValue(5, name, "30");
         temperatureMotorGraph = ChartFactory.createLineChart("Motor temperature",
                 "Time (s)",
                 "Temperature (°C)",

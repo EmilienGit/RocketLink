@@ -15,17 +15,19 @@ public class Pressure extends AbstractSensor {
 
     private ChartPanel panelPressureGraph;
 
+    private String name = "Altimeter";
+
     /**
      * Constructeur
      */
     public Pressure() {
-        data.setValue(1013, "Pressure", "5");
-        data.setValue(1000, "Pressure", "10");
-        data.setValue(950, "Pressure", "15");
-        data.setValue(900, "Pressure", "20");
-        data.setValue(850, "Pressure", "25");
-        data.setValue(800, "Pressure", "30");
-        pressureGraph = ChartFactory.createLineChart("Pressure",
+        data.setValue(1013, name, "5");
+        data.setValue(1000, name, "10");
+        data.setValue(950, name, "15");
+        data.setValue(900, name, "20");
+        data.setValue(850, name, "25");
+        data.setValue(800, name, "30");
+        pressureGraph = ChartFactory.createLineChart(name,
                 "Time (s)",
                 "Pressure (Pa)",
                 data);

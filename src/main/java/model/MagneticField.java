@@ -15,17 +15,19 @@ public class MagneticField extends AbstractSensor {
 
     private ChartPanel panelMagneticFieldGraph;
 
+    private String name = "Magnetic field";
+
     /**
      * Constructeur
      */
     public MagneticField() {
-        data.setValue(-10, "Magnetic field", "5");
-        data.setValue(5, "Magnetic field", "10");
-        data.setValue(0, "Magnetic field", "15");
-        data.setValue(-4, "Magnetic field", "20");
-        data.setValue(8, "Magnetic field", "25");
-        data.setValue(-10, "Magnetic field", "30");
-        magneticFieldGraph = ChartFactory.createLineChart("Magnetic field",
+        data.setValue(-10, name, "5");
+        data.setValue(5, name, "10");
+        data.setValue(0, name, "15");
+        data.setValue(-4, name, "20");
+        data.setValue(8, name, "25");
+        data.setValue(-10, name, "30");
+        magneticFieldGraph = ChartFactory.createLineChart(name,
                 "Time (s)",
                 "Magnetic field B (G)",
                 data);

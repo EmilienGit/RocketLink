@@ -15,7 +15,7 @@ public class ActionAddRemoveSensor {
      * Constructeur
      */
     public ActionAddRemoveSensor() {
-
+        super();
     }
 
     /**

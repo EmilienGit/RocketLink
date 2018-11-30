@@ -4,26 +4,30 @@ import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.data.category.DefaultCategoryDataset;
-import org.jfree.data.xy.XYDataset;
 
+/**
+ * @author Emilien
+ */
 public class TemperatureOgive extends AbstractSensor {
-    private DefaultCategoryDataset data = new DefaultCategoryDataset();
-    private JFreeChart temperatureOgiveGraph;
-    private ChartPanel panelTeamperatureOgiveGraph;
-    private XYDataset xyDataset;
 
-    public TemperatureOgive(){
-/*        xyDataset.addChangeListener(new DatasetChangeListener() {
-            public void datasetChanged(DatasetChangeEvent datasetChangeEvent) {
-                // listener for the data check with C++
-            }
-        });*/
-        data.setValue(28,"Temperature","5");
-        data.setValue(27,"Temperature","10");
-        data.setValue(25,"Temperature","15");
-        data.setValue(15,"Temperature","20");
-        data.setValue(14,"Temperature","25");
-        data.setValue(12,"Temperature","30");
+    private DefaultCategoryDataset data = new DefaultCategoryDataset();
+
+    private JFreeChart temperatureOgiveGraph;
+
+    private ChartPanel panelTeamperatureOgiveGraph;
+
+    private String name = "Teamperature";
+
+    /**
+     * Constructeur
+     */
+    public TemperatureOgive() {
+        data.setValue(28,name,"5");
+        data.setValue(27,name,"10");
+        data.setValue(25,name,"15");
+        data.setValue(15,name,"20");
+        data.setValue(14,name,"25");
+        data.setValue(12,name,"30");
         temperatureOgiveGraph = ChartFactory.createLineChart("Ogive temperature",
                 "Time (s)",
                 "Temperature (°C)",
@@ -31,7 +35,11 @@ public class TemperatureOgive extends AbstractSensor {
         panelTeamperatureOgiveGraph = new ChartPanel(temperatureOgiveGraph);
     }
 
-    public TemperatureOgive(DefaultCategoryDataset data){
+    /**
+     * Constructeur 2
+     * @param data data
+     * */
+    public TemperatureOgive(DefaultCategoryDataset data) {
         temperatureOgiveGraph = ChartFactory.createLineChart("Ogive temperature",
                 "Time (s)",
                 "Temperature (°C)",
@@ -40,18 +48,34 @@ public class TemperatureOgive extends AbstractSensor {
         panelTeamperatureOgiveGraph = new ChartPanel(temperatureOgiveGraph);
     }
 
+    /**
+     * Getter
+     * @return panelTeamperatureOgiveGraph
+     */
     public ChartPanel getPanelTeamperatureOgiveGraph() {
         return panelTeamperatureOgiveGraph;
     }
 
+    /**
+     * Getter
+     * @return data
+     */
     public DefaultCategoryDataset getData() {
         return data;
     }
 
+    /**
+     * Setter
+     * @param data data
+     */
     public void setData(DefaultCategoryDataset data) {
         this.data = data;
     }
 
+    /**
+     * Getter
+     * @return temperatureOgiveGraph
+     */
     public JFreeChart getTemperatureOgiveGraph() {
         return temperatureOgiveGraph;
     }

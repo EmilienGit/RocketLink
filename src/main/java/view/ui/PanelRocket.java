@@ -29,6 +29,7 @@ public class PanelRocket extends JPanel {
      * Image la fusée
      * @param g composant graphic
      */
+    @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         ImageIcon rocket = new ImageIcon("src/main/resources/Images/Fusex.png");

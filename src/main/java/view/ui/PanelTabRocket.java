@@ -26,7 +26,7 @@ public class PanelTabRocket extends JPanel {
     public PanelTabRocket() {
         setPreferredSize(new Dimension(DEFAULT_WIDTH,DEFAULT_HEIGHT));
         setBackground(DEFAULT_BACKGROUND_COLOR);
-        this.panelRocket = new PanelRocket();;
+        this.panelRocket = new PanelRocket();
         init();
         this.add(this.panelRocket,BorderLayout.CENTER);
     }

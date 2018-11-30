@@ -5,8 +5,11 @@ import model.JButtonToolBar;
 import model.AbstractSensor;
 import org.jfree.chart.ChartPanel;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.ButtonGroup;
+import javax.swing.JToolBar;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -14,14 +17,20 @@ import java.awt.event.ActionListener;
  * @author Emilien
  */
 public class PanelToolBar extends JToolBar {
-    public ButtonGroup group = new ButtonGroup();
+    public static final ButtonGroup group = new ButtonGroup();
 
-    public PanelToolBar(){
+    /**
+     * Constructeur
+     */
+    public PanelToolBar() {
         super();
         initComponents();
     }
 
-    private void initComponents(){
+    /**
+     * Initialisation des compsants
+     */
+    private void initComponents() {
         setPreferredSize(new Dimension(50,620));
         setLayout(new GridLayout(25,1));
         setOrientation(JToolBar.VERTICAL);
@@ -31,7 +40,7 @@ public class PanelToolBar extends JToolBar {
         final String[] iconButtonList = {"THERMOMETER_EMPTY","THERMOMETER_FULL","SAFARI","COMPASS","SPACE_SHUTTLE","TACHOMETER",};
         String[] resumeButtonList = {"Ogive temperature","Motor temperature","Pressure","Magnetic Field","Altimeter","Accelerometer"};
 
-        for(int i = 0; i < iconButtonList.length; i++){
+        for (int i = 0; i < iconButtonList.length; i++) {
             final AbstractSensor abstractSensor = PanelGraph.getListAbstractSensors().get(i);
             final ChartPanel chartPanel = PanelGraph.getListPanelSensors().get(i);
             final JButtonToolBar jButton = new JButtonToolBar(iconButtonList[i]);
@@ -77,6 +86,10 @@ public class PanelToolBar extends JToolBar {
 
     }
 
+    /**
+     * Getter
+     * @return group des Button
+     */
     public ButtonGroup getGroup() {
         return group;
     }
