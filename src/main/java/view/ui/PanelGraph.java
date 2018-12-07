@@ -38,7 +38,6 @@ public class PanelGraph extends JPanel {
     public PanelGraph() {
         setPreferredSize(new Dimension(DEFAULT_WIDTH,DEFAULT_HEIGHT));
         setBackground(DEFAULT_BACKGROUND_COLOR);
-
         init();
     }
 
