@@ -16,7 +16,7 @@ public class PanelGraph extends JPanel {
     private static final int DEFAULT_HEIGHT = 615;
     private static final Color DEFAULT_BACKGROUND_COLOR = new Color(43,43,43);
 
-    private static List<Sensor> listSensors = new ArrayList<Sensor>();
+    private static List<AbstractSensor> listSensors = new ArrayList<AbstractSensor>();
     private static List<ChartPanel> listPanelSensors = new ArrayList<ChartPanel>();
 
     private GridLayout gl = new GridLayout(2,3);
@@ -28,7 +28,7 @@ public class PanelGraph extends JPanel {
         init();
     }
 
-    public void init(){
+    public void init() {
         setLayout(gl);
 
 
@@ -78,19 +78,19 @@ public class PanelGraph extends JPanel {
 
     }
 
-    public void addGraphView(Sensor theGraph){
+    public void addGraphView(AbstractSensor theGraph) {
         listSensors.add(theGraph);
     }
 
-    public void removeGraphView(Sensor theGraph){
+    public void removeGraphView(AbstractSensor theGraph) {
         listSensors.remove(theGraph);
     }
 
-    public void addGraphPanel(ChartPanel theGraph){
+    public void addGraphPanel(ChartPanel theGraph) {
         listPanelSensors.add(theGraph);
     }
 
-    public static void removeGraphPanel(ChartPanel theGraph){
+    public static void removeGraphPanel(ChartPanel theGraph) {
         listPanelSensors.remove(theGraph);
     }
 
@@ -98,7 +98,7 @@ public class PanelGraph extends JPanel {
         return listPanelSensors;
     }
 
-    public static List<Sensor> getListSensors() {
+    public static List<AbstractSensor> getListAbstractSensors() {
         return listSensors;
     }
 }
