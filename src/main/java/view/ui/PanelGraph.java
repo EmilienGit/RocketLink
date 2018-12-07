@@ -1,18 +1,10 @@
 package view.ui;
 
-import model.AbstractSensor;
-import model.Accelerometer;
-import model.Altimeter;
-import model.MagneticField;
-import model.Pressure;
-import model.TemperatureMotor;
-import model.TemperatureOgive;
+import model.*;
 import org.jfree.chart.ChartPanel;
 
-import javax.swing.JPanel;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.GridLayout;
+import javax.swing.*;
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,20 +13,14 @@ import java.util.List;
  */
 public class PanelGraph extends JPanel {
     private static final int DEFAULT_WIDTH = 1015;
-
     private static final int DEFAULT_HEIGHT = 615;
-
     private static final Color DEFAULT_BACKGROUND_COLOR = new Color(43,43,43);
 
-    private static List<AbstractSensor> listAbstractSensors = new ArrayList<AbstractSensor>();
-
+    private static List<Sensor> listSensors = new ArrayList<Sensor>();
     private static List<ChartPanel> listPanelSensors = new ArrayList<ChartPanel>();
 
     private GridLayout gl = new GridLayout(2,3);
 
-    /**
-     * Constructeur
-     */
     public PanelGraph() {
         setPreferredSize(new Dimension(DEFAULT_WIDTH,DEFAULT_HEIGHT));
         setBackground(DEFAULT_BACKGROUND_COLOR);
@@ -42,10 +28,7 @@ public class PanelGraph extends JPanel {
         init();
     }
 
-    /**
-     * Initialisation des graphs et layout
-     */
-    public void init() {
+    public void init(){
         setLayout(gl);
 
 
@@ -95,51 +78,27 @@ public class PanelGraph extends JPanel {
 
     }
 
-    /**
-     *
-     * @param theGraph le graph
-     */
-    public void addGraphView(AbstractSensor theGraph) {
-        listAbstractSensors.add(theGraph);
+    public void addGraphView(Sensor theGraph){
+        listSensors.add(theGraph);
     }
 
-    /**
-     * Remove
-     * @param theGraph l'abstractSensor
-     */
-    public void removeGraphView(AbstractSensor theGraph) {
-        listAbstractSensors.remove(theGraph);
+    public void removeGraphView(Sensor theGraph){
+        listSensors.remove(theGraph);
     }
 
-    /**
-     * Add
-     * @param theGraph le panel
-     */
-    public void addGraphPanel(ChartPanel theGraph) {
+    public void addGraphPanel(ChartPanel theGraph){
         listPanelSensors.add(theGraph);
     }
 
-    /**
-     * Remove Panel
-     * @param theGraph panel
-     */
-    public static void removeGraphPanel(ChartPanel theGraph) {
+    public static void removeGraphPanel(ChartPanel theGraph){
         listPanelSensors.remove(theGraph);
     }
 
-    /**
-     * Getter
-     * @return listPanelSensors
-     */
     public static List<ChartPanel> getListPanelSensors() {
         return listPanelSensors;
     }
 
-    /**
-     * Getter
-     * @return listAbstractSensors
-     */
-    public static List<AbstractSensor> getListAbstractSensors() {
-        return listAbstractSensors;
+    public static List<Sensor> getListSensors() {
+        return listSensors;
     }
 }
