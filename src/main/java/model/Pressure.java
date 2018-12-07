@@ -15,7 +15,7 @@ public class Pressure extends AbstractSensor {
 
     private ChartPanel panelPressureGraph;
 
-    private String name = "Altimeter";
+    private String name = "Pressure";
 
     /**
      * Constructeur

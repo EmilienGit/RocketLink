@@ -1,11 +1,9 @@
 package view.ui;
 
-import javax.swing.ImageIcon;
-import javax.swing.JPanel;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Image;
+import model.LightIndicator;
+
+import javax.swing.*;
+import java.awt.*;
 
 /**
  * @author Emilien
@@ -23,6 +21,11 @@ public class PanelRocket extends JPanel {
     public PanelRocket() {
         setPreferredSize(new Dimension(DEFAULT_WIDTH,DEFAULT_HEIGHT));
         setBackground(DEFAULT_BACKGROUND_COLOR);
+        this.setLayout(null);
+        LightIndicator lightIndicator = new LightIndicator();
+        JLabel labelRed = lightIndicator.getLabelLightIndicator();
+        labelRed.setBounds(200,200,50,50);
+        this.add(labelRed);
     }
 
     /**

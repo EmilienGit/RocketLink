@@ -35,9 +35,6 @@ public class PanelTabRocket extends JPanel {
      * Initialisation des lumières
      */
     public void init() {
-        LightIndicator lightIndicator = new LightIndicator();
-        JLabel labelRed = lightIndicator.getLabelLightIndicator();
-        this.panelRocket.add(labelRed);
 
     }
 }
