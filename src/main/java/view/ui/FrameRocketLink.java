@@ -1,18 +1,23 @@
 package view.ui;
 
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JFrame;
+import javax.swing.JTabbedPane;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 
 /**
- * @Author Emilien
+ * @author Emilien
  */
 public class FrameRocketLink extends javax.swing.JFrame {
     private static final String DEFAULT_TITLE = "RocketLink";
 
     private static FrameRocketLink instance = new FrameRocketLink();
+
     private PanelTabRocket panelTabRocket = new PanelTabRocket();
+
     private PanelTabGraph panelTabGraph = new PanelTabGraph();
+
     private JTabbedPane tabs = new JTabbedPane();
 
     /**
@@ -31,12 +36,16 @@ public class FrameRocketLink extends javax.swing.JFrame {
 
         this.getContentPane().add(tabs);
         this.setVisible(true);
-        this.setIconImage(Toolkit.getDefaultToolkit()
-                .getImage("src/main/resources/Images/Logo_transparent.png"));
+        this.setIconImage(Toolkit.getDefaultToolkit().getImage(
+                "src/main/resources/Images/Logo_transparent.png"));
 
     }
 
-    public static FrameRocketLink getInstance(){
+    /**
+     * Getter
+     * @return l'instance Frame
+     */
+    public static FrameRocketLink getInstance() {
         return instance;
     }
 

@@ -1,48 +1,71 @@
 package controler;
 
-import jiconfont.icons.FontAwesome;
-import model.Sensor;
+import model.AbstractSensor;
 import org.jfree.chart.ChartPanel;
 import view.ui.PanelGraph;
 
-import javax.swing.*;
-import java.awt.*;
 import java.util.List;
 
+/**
+ * @author Emilien
+ */
 public class ActionAddRemoveSensor {
 
-    public ActionAddRemoveSensor(){
-
+    /**
+     * Constructeur
+     */
+    public ActionAddRemoveSensor() {
+        super();
     }
 
-    public void addRemoveSensor(PanelGraph panelGraph, ChartPanel thePanel, Sensor sensor){
-        if(sensor.isVisibile()){
+    /**
+     *
+     * @param panelGraph représente le panneau où sont sera positionner les graph
+     * @param thePanel réprésente le Graph
+     * @param abstractSensor représente le Capteur
+     */
+    public void addRemoveSensor(PanelGraph panelGraph, ChartPanel thePanel, AbstractSensor abstractSensor) {
+        if (abstractSensor.isVisibile()) {
             panelGraph.remove(thePanel);
             panelGraph.repaint();
-            sensor.setVisibility(false);
+            abstractSensor.setVisibility(false);
         } else {
             panelGraph.add(thePanel);
             panelGraph.repaint();
-            sensor.setVisibility(true);
+            abstractSensor.setVisibility(true);
         }
     }
 
-    public void removeAllSensors(PanelGraph panelGraph, List<ChartPanel> panels, List<Sensor> sensors){
-        for(int i = 0; i < sensors.size(); i ++){
-            if(sensors.get(i).isVisibile()) {
+    /**
+     *
+     * @param panelGraph représente le panneau où sont sera positionner les graph
+     * @param panels réprésente les Graphs
+     * @param abstractSensors représente les Capteurs
+     */
+    public void removeAllSensors(PanelGraph panelGraph, List<ChartPanel> panels,
+                                 List<AbstractSensor> abstractSensors) {
+        for (int i = 0; i < abstractSensors.size(); i++) {
+            if (abstractSensors.get(i).isVisibile()) {
                 panelGraph.remove(panels.get(i));
                 panelGraph.repaint();
-                sensors.get(i).setVisibility(false);
+                abstractSensors.get(i).setVisibility(false);
             }
         }
     }
 
-    public void addAllSensors(PanelGraph panelGraph, List<ChartPanel> panels, List<Sensor> sensors){
-        for(int i = 0; i < sensors.size(); i ++){
-            if(sensors.get(i).isVisibile() == false) {
+    /**
+     *
+     * @param panelGraph représente le panneau où sont sera positionner les graph
+     * @param panels réprésente les Graphs
+     * @param abstractSensors représente les Capteurs
+     */
+    public void addAllSensors(PanelGraph panelGraph, List<ChartPanel> panels,
+                              List<AbstractSensor> abstractSensors) {
+        for (int i = 0; i < abstractSensors.size(); i++) {
+            if (!abstractSensors.get(i).isVisibile()) {
                 panelGraph.add(panels.get(i));
                 panelGraph.repaint();
-                sensors.get(i).setVisibility(true);
+                abstractSensors.get(i).setVisibility(true);
             }
         }
     }
