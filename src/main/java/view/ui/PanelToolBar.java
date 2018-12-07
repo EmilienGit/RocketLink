@@ -38,6 +38,7 @@ public class PanelToolBar extends JToolBar {
         setFloatable(false);
 
         final String[] iconButtonList = {"THERMOMETER_EMPTY","THERMOMETER_FULL","SAFARI","COMPASS","SPACE_SHUTTLE","TACHOMETER",};
+
         String[] resumeButtonList = {"Ogive temperature","Motor temperature","Pressure","Magnetic Field","Altimeter","Accelerometer"};
 
         for (int i = 0; i < iconButtonList.length; i++) {

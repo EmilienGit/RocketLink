@@ -24,7 +24,8 @@ public class ActionAddRemoveSensor {
      * @param thePanel réprésente le Graph
      * @param abstractSensor représente le Capteur
      */
-    public void addRemoveSensor(PanelGraph panelGraph, ChartPanel thePanel, AbstractSensor abstractSensor) {
+    public void addRemoveSensor(PanelGraph panelGraph, ChartPanel thePanel,
+                                AbstractSensor abstractSensor) {
         if (abstractSensor.isVisibile()) {
             panelGraph.remove(thePanel);
             panelGraph.repaint();

@@ -2,21 +2,35 @@ package data;
 
 import view.ui.PanelRocket;
 
+/**
+ * @author Quentin
+ */
 public class LoadData {
 
     private String tempMotor;
+
     private String magnetic;
+
     private String pressure;
+
     private String altimeter;
+
     private String accelerometer;
+
     private String tempOgive;
 
-    public LoadData(){
+    /**
+     * Constructor
+     */
+    public LoadData() {
         super();
         init();
     }
 
-    private void init(){
+    /**
+     * Initialisation
+     */
+    private void init() {
         this.setAccelerometer("10");
         this.setAltimeter("20");
         this.setMagnetic("30");
@@ -25,7 +39,10 @@ public class LoadData {
         this.setTempOgive("60");
     }
 
-    private void update(){
+    /**
+     * Update
+     */
+    private void update() {
         PanelRocket.update();
     }
 
