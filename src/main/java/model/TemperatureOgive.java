@@ -89,8 +89,9 @@ public class TemperatureOgive extends AbstractSensor implements Runnable{
                 float secondsFloat = (tempsFin - tempsDebut) / 1000F;
                 int seconds = Math.round(secondsFloat);
                 data.setValue(value,name,Float.toString(seconds));
+                String oldData = LoadData.getTempOgive();
                 LoadData.setTempOgive(String.valueOf(value));
-                LoadData.update();
+                LoadData.update(oldData);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

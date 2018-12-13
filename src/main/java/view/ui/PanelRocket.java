@@ -50,8 +50,6 @@ public class PanelRocket extends JPanel {
         setBackground(DEFAULT_BACKGROUND_COLOR);
         setLayout(null);
         init();
-        update();
-        //LoadData.init();
     }
 
 
@@ -106,30 +104,40 @@ public class PanelRocket extends JPanel {
     /**
      * Update
      */
-    public static void update() {
+    public static void update(String oldData) {
+        String[] splited;
         for (JTextField jTextField : jTextFieldList) {
             switch (jTextField.getName())
             {
                 case "TempMotor":
                     jTextField.setText(LoadData.getTempMotor());
-                    if(LoadData.getTempMotor().equals("null °c")){
-                        findIndicator("TempMotor").setLightColor(Color.red);
-                    }
+                    splited = LoadData.getTempMotor().split("\\s+");
+                    updateLightIndicator("TempMotor", oldData, splited);
                     break;
                 case "Magnetic":
                     jTextField.setText(LoadData.getMagnetic());
+                    splited = LoadData.getMagnetic().split("\\s+");
+                    updateLightIndicator("Magnetic", oldData, splited);
                     break;
                 case "Pressure":
                     jTextField.setText(LoadData.getPressure());
+                    splited = LoadData.getPressure().split("\\s+");
+                    updateLightIndicator("Pressure", oldData, splited);
                     break;
                 case "Altimeter":
                     jTextField.setText(LoadData.getAltimeter());
+                    splited = LoadData.getAltimeter().split("\\s+");
+                    updateLightIndicator("Altimeter", oldData, splited);
                     break;
                 case "Accelerometer":
                     jTextField.setText(LoadData.getAccelerometer());
+                    splited = LoadData.getAccelerometer().split("\\s+");
+                    updateLightIndicator("Accelerometer", oldData, splited);
                     break;
                 case "TempOgive":
                     jTextField.setText(LoadData.getTempOgive());
+                    splited = LoadData.getTempOgive().split("\\s+");
+                    updateLightIndicator("TempOgive", oldData, splited);
                     break;
                 default:
                     break;
@@ -146,6 +154,14 @@ public class PanelRocket extends JPanel {
             }
         }
         return lightIndicator;
+    }
+
+    private static void updateLightIndicator(String name, String oldData, String[] splited){
+        if(splited[0].equals("null")){
+            findIndicator(name).setLightColor(Color.RED);
+        } else {
+            findIndicator(name).setLightColor(Color.GREEN);
+        }
     }
 
     @Override

@@ -22,8 +22,8 @@ public class LoadData {
     /**
      * Update
      */
-    public static void update() {
-        PanelRocket.update();
+    public static void update(String oldData) {
+        PanelRocket.update(oldData);
     }
 
     /**
