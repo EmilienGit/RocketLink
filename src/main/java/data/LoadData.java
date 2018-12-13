@@ -20,7 +20,17 @@ public class LoadData {
     private static String tempOgive;
 
     /**
+     * Constructor
+     */
+    public LoadData() {
+        super();
+    }
+
+    /**
      * Update
+     *
+     * @param name : name of the field
+     * @param oldData : old value show on the field
      */
     public static void update(String name, String oldData) {
         PanelRocket.update(name, oldData);
