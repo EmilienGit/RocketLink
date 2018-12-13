@@ -22,30 +22,27 @@ import java.util.List;
  */
 public class PanelRocket extends JPanel {
     private static final int DEFAULT_WIDTH = 1080;
-
     private static final int DEFAULT_HEIGHT = 620;
-
     private static final Color DEFAULT_BACKGROUND_COLOR = new Color(43,43,43);
-
     private static final int NOMBRE_CAPTOR = 6;
-
-    private static final List<String> INDICATORS_NAME = Arrays.asList("TempMotor", "Magnetic",
-            "Pressure",  "Altimeter", "Accelerometer", "TempOgive");
-
+    private static final String TEMPMOTOR = "TempMotor";
+    private static final String MAGNETIC = "Magnetic";
+    private static final String PRESSURE = "Pressure";
+    private static final String ALTIMETER = "Altimeter";
+    private static final String ACCELEROMETER = "Accelerometer";
+    private static final String TEMPOGIVE = "TempOgive";
+    private static final List<String> INDICATORS_NAME = Arrays.asList(TEMPMOTOR, MAGNETIC,
+            PRESSURE,  ALTIMETER, ACCELEROMETER, TEMPOGIVE);
     private static final List<Integer> INDICATORS_X_POSITION = Arrays.asList(243, 367, 545,
             598, 650, 763);
-
     private static final int INDICATORS_Y_POSITION = 211 / 2 / 2 + 48;
-
     private static final List<Integer> FIELD_X_POSITION = Arrays.asList(1080 / 4, (1080 / 4) * 2,
             (1080 / 4) * 3, 1080 / 4, (1080 / 4) * 2, (1080 / 4) * 3);
-
     private static final List<Integer> FIELD_Y_POSITION = Arrays.asList(350, 350, 350,
             450, 450, 450);
 
-    private static List<LightIndicator> lightIndicatorList;
-
-    private static List<JTextField> jTextFieldList;
+    private static List<LightIndicator> lightIndicatorList = new ArrayList();
+    private static List<JTextField> jTextFieldList = new ArrayList();
 
     /**
      * Constructor
@@ -54,8 +51,6 @@ public class PanelRocket extends JPanel {
         setPreferredSize(new Dimension(DEFAULT_WIDTH, DEFAULT_HEIGHT));
         setBackground(DEFAULT_BACKGROUND_COLOR);
         setLayout(null);
-        lightIndicatorList = new ArrayList();
-        jTextFieldList = new ArrayList();
         init();
     }
 
@@ -89,7 +84,7 @@ public class PanelRocket extends JPanel {
         lightIndicator2.getLabel().setBounds(x, y + 1, 100,100);
         this.add(lightIndicator.getLabel());
         this.add(lightIndicator2.getLabel());
-        this.lightIndicatorList.add(lightIndicator);
+        lightIndicatorList.add(lightIndicator);
     }
 
     /**
@@ -121,35 +116,35 @@ public class PanelRocket extends JPanel {
     public static void update(String name, String oldData) {
         String[] splited;
         switch (name) {
-            case "TempMotor":
+            case TEMPMOTOR:
                 jTextFieldList.get(placement(name)).setText(LoadData.getTempMotor());
                 splited = LoadData.getTempMotor().split("\\s+");
-                updateLightIndicator("TempMotor", splited, oldData);
+                updateLightIndicator(TEMPMOTOR, splited, oldData);
                 break;
-            case "Magnetic":
+            case MAGNETIC:
                 jTextFieldList.get(placement(name)).setText(LoadData.getMagnetic());
                 splited = LoadData.getMagnetic().split("\\s+");
-                updateLightIndicator("Magnetic", splited, oldData);
+                updateLightIndicator(MAGNETIC, splited, oldData);
                 break;
-            case "Pressure":
+            case PRESSURE:
                 jTextFieldList.get(placement(name)).setText(LoadData.getPressure());
                 splited = LoadData.getPressure().split("\\s+");
-                updateLightIndicator("Pressure", splited, oldData);
+                updateLightIndicator(PRESSURE, splited, oldData);
                 break;
-            case "Altimeter":
+            case ALTIMETER:
                 jTextFieldList.get(placement(name)).setText(LoadData.getAltimeter());
                 splited = LoadData.getAltimeter().split("\\s+");
-                updateLightIndicator("Altimeter", splited, oldData);
+                updateLightIndicator(ALTIMETER, splited, oldData);
                 break;
-            case "Accelerometer":
+            case ACCELEROMETER:
                 jTextFieldList.get(placement(name)).setText(LoadData.getAccelerometer());
                 splited = LoadData.getAccelerometer().split("\\s+");
-                updateLightIndicator("Accelerometer", splited, oldData);
+                updateLightIndicator(ACCELEROMETER, splited, oldData);
                 break;
-            case "TempOgive":
+            case TEMPOGIVE:
                 jTextFieldList.get(placement(name)).setText(LoadData.getTempOgive());
                 splited = LoadData.getTempOgive().split("\\s+");
-                updateLightIndicator("TempOgive", splited, oldData);
+                updateLightIndicator(TEMPOGIVE, splited, oldData);
                 break;
             default:
                 break;
