@@ -15,6 +15,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * @author Quentin
+ */
 public class PanelRocket extends JPanel {
     private static final int DEFAULT_WIDTH = 1080;
 
@@ -96,6 +99,7 @@ public class PanelRocket extends JPanel {
         jTextField.setName(name);
         jTextField.setBounds(x-75,y+40, 130, 35);
         jTextField.setEnabled(false);
+        jTextField.setDisabledTextColor(Color.BLACK);
         jTextFieldList.add(jTextField);
         this.add(jLabel);
         this.add(jTextField);

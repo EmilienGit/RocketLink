@@ -5,6 +5,9 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 
+/**
+ * @author Quentin
+ */
 public class PanelTabRocket extends JPanel {
     private static final int DEFAULT_WIDTH = 1000;
 
