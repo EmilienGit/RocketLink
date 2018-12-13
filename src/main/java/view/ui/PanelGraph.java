@@ -30,7 +30,7 @@ public class PanelGraph extends JPanel {
 
     private static List<ChartPanel> listPanelSensors = new ArrayList<ChartPanel>();
 
-    private GridLayout gl = new GridLayout(2,3); 
+    private GridLayout gl = new GridLayout(2,3);
 
     /**
      * Constructor

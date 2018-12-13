@@ -5,10 +5,12 @@ import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.data.category.DefaultCategoryDataset;
 
+import java.util.Random;
+
 /**
  * @author Emilien
  */
-public class TemperatureOgive extends AbstractSensor {
+public class TemperatureOgive extends AbstractSensor implements Runnable{
 
     private DefaultCategoryDataset data = new DefaultCategoryDataset();
 
@@ -22,12 +24,6 @@ public class TemperatureOgive extends AbstractSensor {
      * Constructeur
      */
     public TemperatureOgive() {
-        data.setValue(28,name,"5");
-        data.setValue(27,name,"10");
-        data.setValue(25,name,"15");
-        data.setValue(15,name,"20");
-        data.setValue(14,name,"25");
-        data.setValue(12,name,"30");
         temperatureOgiveGraph = ChartFactory.createLineChart("Ogive temperature",
                 "Time (s)",
                 "Temperature (°C)",
@@ -78,6 +74,24 @@ public class TemperatureOgive extends AbstractSensor {
      */
     public JFreeChart getTemperatureOgiveGraph() {
         return temperatureOgiveGraph;
+    }
+
+    @Override
+    public void run() {
+        long tempsDebut = System.currentTimeMillis();
+        while (true) {
+            try {
+                Thread.sleep(5000);
+                Random rand = new Random();
+                int value = rand.nextInt(100);
+                long tempsFin = System.currentTimeMillis();
+                float secondsFloat = (tempsFin - tempsDebut) / 1000F;
+                int seconds = Math.round(secondsFloat);
+                data.setValue(value,name,Float.toString(seconds));
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
 }

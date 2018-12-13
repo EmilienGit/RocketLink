@@ -5,10 +5,12 @@ import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.data.category.DefaultCategoryDataset;
 
+import java.util.Random;
+
 /**
  * @author Emilien
  */
-public class MagneticField extends AbstractSensor {
+public class MagneticField extends AbstractSensor implements  Runnable {
     private DefaultCategoryDataset data = new DefaultCategoryDataset();
 
     private JFreeChart magneticFieldGraph;
@@ -21,12 +23,6 @@ public class MagneticField extends AbstractSensor {
      * Constructeur
      */
     public MagneticField() {
-        data.setValue(-10, name, "5");
-        data.setValue(5, name, "10");
-        data.setValue(0, name, "15");
-        data.setValue(-4, name, "20");
-        data.setValue(8, name, "25");
-        data.setValue(-10, name, "30");
         magneticFieldGraph = ChartFactory.createLineChart(name,
                 "Time (s)",
                 "Magnetic field B (G)",
@@ -49,5 +45,24 @@ public class MagneticField extends AbstractSensor {
      */
     public ChartPanel getPanelMagneticFieldGraph() {
         return panelMagneticFieldGraph;
+    }
+
+    @Override
+    public void run() {
+        long tempsDebut = System.currentTimeMillis();
+        while (true) {
+            try {
+
+                Thread.sleep(3000);
+                Random rand = new Random();
+                int value = rand.nextInt(100);
+                long tempsFin = System.currentTimeMillis();
+                float secondsFloat = (tempsFin - tempsDebut) / 1000F;
+                int seconds = Math.round(secondsFloat);
+                data.setValue(value,name,Float.toString(seconds));
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

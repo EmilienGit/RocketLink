@@ -5,10 +5,12 @@ import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.data.category.DefaultCategoryDataset;
 
+import java.util.Random;
+
 /**
  * @author Emilien
  */
-public class Altimeter extends AbstractSensor {
+public class Altimeter extends AbstractSensor implements  Runnable {
     private DefaultCategoryDataset data = new DefaultCategoryDataset();
 
     private JFreeChart altimeterGraph;
@@ -21,14 +23,6 @@ public class Altimeter extends AbstractSensor {
      * Constructeur de l'altimetre et ses valeurs
      */
     public Altimeter() {
-        data.setValue(150, name, "1");
-        data.setValue(550, name, "5");
-        data.setValue(1050, name, "10");
-        data.setValue(1250, name, "15");
-        data.setValue(1060, name, "20");
-        data.setValue(960, name, "25");
-        data.setValue(880, name, "30");
-
         altimeterGraph = ChartFactory.createLineChart(name,
                 "Time (s)",
                 "Altimeter -> altitude (m)",
@@ -51,5 +45,23 @@ public class Altimeter extends AbstractSensor {
      */
     public ChartPanel getPanelAltimeterGraph() {
         return panelAltimeterGraph;
+    }
+
+    @Override
+    public void run() {
+        long tempsDebut = System.currentTimeMillis();
+        while (true) {
+            try {
+                Thread.sleep(3000);
+                Random rand = new Random();
+                int value = rand.nextInt(100);
+                long tempsFin = System.currentTimeMillis();
+                float secondsFloat = (tempsFin - tempsDebut) / 1000F;
+                int seconds = Math.round(secondsFloat);
+                data.setValue(value,name,Float.toString(seconds));
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

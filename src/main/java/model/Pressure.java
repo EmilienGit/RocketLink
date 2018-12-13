@@ -5,10 +5,12 @@ import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.data.category.DefaultCategoryDataset;
 
+import java.util.Random;
+
 /**
  * @author Emilien
  */
-public class Pressure extends AbstractSensor {
+public class Pressure extends AbstractSensor implements  Runnable {
     private DefaultCategoryDataset data = new DefaultCategoryDataset();
 
     private JFreeChart pressureGraph;
@@ -21,12 +23,6 @@ public class Pressure extends AbstractSensor {
      * Constructeur
      */
     public Pressure() {
-        data.setValue(1013, name, "5");
-        data.setValue(1000, name, "10");
-        data.setValue(950, name, "15");
-        data.setValue(900, name, "20");
-        data.setValue(850, name, "25");
-        data.setValue(800, name, "30");
         pressureGraph = ChartFactory.createLineChart(name,
                 "Time (s)",
                 "Pressure (Pa)",
@@ -77,6 +73,25 @@ public class Pressure extends AbstractSensor {
      */
     public JFreeChart getPressureGraph() {
         return pressureGraph;
+    }
+
+    @Override
+    public void run() {
+        long tempsDebut = System.currentTimeMillis();
+        while (true) {
+            try {
+
+                Thread.sleep(3000);
+                Random rand = new Random();
+                int value = rand.nextInt(100);
+                long tempsFin = System.currentTimeMillis();
+                float secondsFloat = (tempsFin - tempsDebut) / 1000F;
+                int seconds = Math.round(secondsFloat);
+                data.setValue(value,name,Float.toString(seconds));
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
 }

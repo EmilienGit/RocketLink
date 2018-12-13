@@ -5,10 +5,12 @@ import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.data.category.DefaultCategoryDataset;
 
+import java.util.Random;
+
 /**
  * @author Emilien
  */
-public class Accelerometer extends AbstractSensor {
+public class Accelerometer extends AbstractSensor implements  Runnable {
 
     private DefaultCategoryDataset data = new DefaultCategoryDataset();
 
@@ -22,12 +24,6 @@ public class Accelerometer extends AbstractSensor {
      * Constructeur de l'Accelerometer avec ses valeurs
      */
     public Accelerometer() {
-        data.setValue(100, name, "5");
-        data.setValue(90, name, "10");
-        data.setValue(75, name, "15");
-        data.setValue(50, name, "20");
-        data.setValue(20, name, "25");
-        data.setValue(2, name, "30");
         accelerometerGraph = ChartFactory.createLineChart(name,
                 "Time (s)",
                 "Accelerometer g (m.s-²)",
@@ -50,6 +46,24 @@ public class Accelerometer extends AbstractSensor {
      */
     public ChartPanel getPanelAccelerometerGraph() {
         return panelAccelerometerGraph;
+    }
+
+    @Override
+    public void run() {
+        long tempsDebut = System.currentTimeMillis();
+        while (true) {
+            try {
+                Thread.sleep(3000);
+                Random rand = new Random();
+                int value = rand.nextInt(100);
+                long tempsFin = System.currentTimeMillis();
+                float secondsFloat = (tempsFin - tempsDebut) / 1000F;
+                int seconds = Math.round(secondsFloat);
+                data.setValue(value,name,Float.toString(seconds));
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
 }

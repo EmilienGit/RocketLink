@@ -5,10 +5,15 @@ import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.data.category.DefaultCategoryDataset;
 
+import java.sql.Time;
+import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
+
 /**
  * @author Emilien
  */
-public class TemperatureMotor extends AbstractSensor {
+public class TemperatureMotor extends AbstractSensor implements  Runnable {
     private DefaultCategoryDataset data = new DefaultCategoryDataset();
 
     private JFreeChart temperatureMotorGraph;
@@ -17,16 +22,12 @@ public class TemperatureMotor extends AbstractSensor {
 
     private String name = "Teamperature";
 
+    private Timer timer;
+
     /**
      * Constructor
      */
     public TemperatureMotor() {
-        data.setValue(28, name, "5");
-        data.setValue(27, name, "10");
-        data.setValue(20, name, "15");
-        data.setValue(15, name, "20");
-        data.setValue(10, name, "25");
-        data.setValue(5, name, "30");
         temperatureMotorGraph = ChartFactory.createLineChart("Motor temperature",
                 "Time (s)",
                 "Temperature (°C)",
@@ -79,4 +80,22 @@ public class TemperatureMotor extends AbstractSensor {
         return temperatureMotorGraph;
     }
 
+
+    @Override
+    public void run() {
+        long tempsDebut = System.currentTimeMillis();
+        while (true) {
+            try {
+                Thread.sleep(3000);
+                Random rand = new Random();
+                int value = rand.nextInt(100);
+                long tempsFin = System.currentTimeMillis();
+                float secondsFloat = (tempsFin - tempsDebut) / 1000F;
+                int seconds = Math.round(secondsFloat);
+                data.setValue(value,name,Float.toString(seconds));
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 }
