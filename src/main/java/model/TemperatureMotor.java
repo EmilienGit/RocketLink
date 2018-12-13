@@ -11,7 +11,12 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 /**
+ * JFreeChart : a free chart library for the Java(tm) platform.
+ * This class manage the sensor MagneticField.
+ *
  * @author Emilien
+ *
+ * <p>13 decembre 2018 : Version 1 (Emilien)</p>
  */
 public class TemperatureMotor extends AbstractSensor implements  Runnable {
     private DefaultCategoryDataset data = new DefaultCategoryDataset();
@@ -86,13 +91,13 @@ public class TemperatureMotor extends AbstractSensor implements  Runnable {
         long tempsDebut = System.currentTimeMillis();
         while (true) {
             try {
-                Thread.sleep(3000);
                 Random rand = new Random();
                 int value = rand.nextInt(100);
                 long tempsFin = System.currentTimeMillis();
                 float secondsFloat = (tempsFin - tempsDebut) / 1000F;
                 int seconds = Math.round(secondsFloat);
                 data.setValue(value,name,Float.toString(seconds));
+                Thread.sleep(10000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

@@ -7,22 +7,34 @@ import view.ui.PanelGraph;
 import java.util.List;
 
 /**
+ * JFreeChart : a free chart library for the Java(tm) platform
+ *
+ * <p>This class manage the action of each button on the tab Graph (where every graphs are).
+ * Three actions are possible :
+ * The first one is to add or remove a single sensor.
+ * The second is to remove every sensors visible in the tab Graph.
+ * The third is to add every sensors not visible int the tab Graph.
+ *
  * @author Emilien
+ *
+ * <p> 13 Decembre 2018 : Version 1</p>
+ *
  */
+
 public class ActionAddRemoveSensor {
 
     /**
-     * Constructeur
+     * Constructor of the action to add or remove a sensor. Nothing set.
      */
     public ActionAddRemoveSensor() {
         super();
     }
 
     /**
-     *
-     * @param panelGraph représente le panneau où sont sera positionner les graph
-     * @param thePanel réprésente le Graph
-     * @param abstractSensor représente le Capteur
+     * Add a sensor if it is not visible and remove it if it is visible.
+     * @param panelGraph the panel where every sensor graph are.
+     * @param thePanel the panel of the sensor.
+     * @param abstractSensor the sensor.
      */
     public void addRemoveSensor(PanelGraph panelGraph, ChartPanel thePanel,
                                 AbstractSensor abstractSensor) {
@@ -38,10 +50,10 @@ public class ActionAddRemoveSensor {
     }
 
     /**
-     *
-     * @param panelGraph représente le panneau où sont sera positionner les graph
-     * @param panels réprésente les Graphs
-     * @param abstractSensors représente les Capteurs
+     * Remove a sensor if it is visible (for each sensor of the list abstractSensors).
+     * @param panelGraph the panel where every sensor graph are.
+     * @param panels the List of each panels for each sensors.
+     * @param abstractSensors the List of each sensors.
      */
     public void removeAllSensors(PanelGraph panelGraph, List<ChartPanel> panels,
                                  List<AbstractSensor> abstractSensors) {
@@ -55,10 +67,10 @@ public class ActionAddRemoveSensor {
     }
 
     /**
-     *
-     * @param panelGraph représente le panneau où sont sera positionner les graph
-     * @param panels réprésente les Graphs
-     * @param abstractSensors représente les Capteurs
+     * Add a sensor if it is not visible (for each sensor of the list abstractSensors).
+     * @param panelGraph the panel where every sensor graph are.
+     * @param panels the List of each panels for each sensors.
+     * @param abstractSensors the List of each sensors.
      */
     public void addAllSensors(PanelGraph panelGraph, List<ChartPanel> panels,
                               List<AbstractSensor> abstractSensors) {
