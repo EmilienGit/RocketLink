@@ -7,42 +7,22 @@ import view.ui.PanelRocket;
  */
 public class LoadData {
 
-    private String tempMotor;
+    private static String tempMotor;
 
-    private String magnetic;
+    private static String magnetic;
 
-    private String pressure;
+    private static String pressure;
 
-    private String altimeter;
+    private static String altimeter;
 
-    private String accelerometer;
+    private static String accelerometer;
 
-    private String tempOgive;
-
-    /**
-     * Constructor
-     */
-    public LoadData() {
-        super();
-        init();
-    }
-
-    /**
-     * Initialisation
-     */
-    private void init() {
-        this.setAccelerometer("10");
-        this.setAltimeter("20");
-        this.setMagnetic("30");
-        this.setPressure("40");
-        this.setTempMotor("50");
-        this.setTempOgive("60");
-    }
+    private static String tempOgive;
 
     /**
      * Update
      */
-    private void update() {
+    public static void update() {
         PanelRocket.update();
     }
 
@@ -51,7 +31,7 @@ public class LoadData {
      *
      * @return Value of pressure.
      */
-    public String getPressure() {
+    public static String getPressure() {
         return pressure + " Pa";
     }
 
@@ -60,7 +40,7 @@ public class LoadData {
      *
      * @return Value of accelerometer.
      */
-    public String getAccelerometer() {
+    public static String getAccelerometer() {
         return accelerometer + " m.s-2";
     }
 
@@ -69,35 +49,35 @@ public class LoadData {
      *
      * @return Value of tempMotor.
      */
-    public String getTempMotor() {
+    public static String getTempMotor() {
         return tempMotor + " °c";
     }
 
     /**
      * Sets new accelerometer.
      *
-     * @param accelerometer New value of accelerometer.
+     * @param accelerometer2 New value of accelerometer.
      */
-    public void setAccelerometer(String accelerometer) {
-        this.accelerometer = accelerometer;
+    public static void setAccelerometer(String accelerometer2) {
+        accelerometer = accelerometer2;
     }
 
     /**
      * Sets new magnetic.
      *
-     * @param magnetic New value of magnetic.
+     * @param magnetic2 New value of magnetic.
      */
-    public void setMagnetic(String magnetic) {
-        this.magnetic = magnetic;
+    public static void setMagnetic(String magnetic2) {
+        magnetic = magnetic2;
     }
 
     /**
      * Sets new tempOgive.
      *
-     * @param tempOgive New value of tempOgive.
+     * @param tempOgive2 New value of tempOgive.
      */
-    public void setTempOgive(String tempOgive) {
-        this.tempOgive = tempOgive;
+    public static void setTempOgive(String tempOgive2) {
+        tempOgive = tempOgive2;
     }
 
     /**
@@ -105,17 +85,17 @@ public class LoadData {
      *
      * @return Value of magnetic.
      */
-    public String getMagnetic() {
+    public static String getMagnetic() {
         return magnetic;
     }
 
     /**
      * Sets new altimeter.
      *
-     * @param altimeter New value of altimeter.
+     * @param altimeter2 New value of altimeter.
      */
-    public void setAltimeter(String altimeter) {
-        this.altimeter = altimeter;
+    public static void setAltimeter(String altimeter2) {
+        altimeter = altimeter2;
     }
 
     /**
@@ -123,26 +103,26 @@ public class LoadData {
      *
      * @return Value of altimeter.
      */
-    public String getAltimeter() {
+    public static String getAltimeter() {
         return altimeter + " m";
     }
 
     /**
      * Sets new pressure.
      *
-     * @param pressure New value of pressure.
+     * @param pressure2 New value of pressure.
      */
-    public void setPressure(String pressure) {
-        this.pressure = pressure;
+    public static void setPressure(String pressure2) {
+        pressure = pressure2;
     }
 
     /**
      * Sets new tempMotor.
      *
-     * @param tempMotor New value of tempMotor.
+     * @param tempMotor2 New value of tempMotor.
      */
-    public void setTempMotor(String tempMotor) {
-        this.tempMotor = tempMotor;
+    public static void setTempMotor(String tempMotor2) {
+        tempMotor = tempMotor2;
     }
 
     /**
@@ -150,7 +130,7 @@ public class LoadData {
      *
      * @return Value of tempOgive.
      */
-    public String getTempOgive() {
+    public static String getTempOgive() {
         return tempOgive + " °c";
     }
 }

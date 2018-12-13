@@ -1,5 +1,6 @@
 package model;
 
+import data.LoadData;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
@@ -93,6 +94,8 @@ public class TemperatureMotor extends AbstractSensor implements  Runnable {
                 float secondsFloat = (tempsFin - tempsDebut) / 1000F;
                 int seconds = Math.round(secondsFloat);
                 data.setValue(value,name,Float.toString(seconds));
+                LoadData.setTempMotor(String.valueOf(value));
+                LoadData.update();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

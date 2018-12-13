@@ -38,11 +38,9 @@ public class PanelRocket extends JPanel {
 
     private static final List<Integer> FIELD_Y_POSITION = Arrays.asList(350, 350, 350, 450, 450, 450);
 
-    private List<LightIndicator> lightIndicatorList = new ArrayList();
+    private static List<LightIndicator> lightIndicatorList = new ArrayList();
 
     private static List<JTextField> jTextFieldList = new ArrayList();
-
-    private static LoadData loadData;
 
     /**
      * Constructor
@@ -51,9 +49,9 @@ public class PanelRocket extends JPanel {
         setPreferredSize(new Dimension(DEFAULT_WIDTH,DEFAULT_HEIGHT));
         setBackground(DEFAULT_BACKGROUND_COLOR);
         setLayout(null);
-        this.loadData = new LoadData();
         init();
         update();
+        //LoadData.init();
     }
 
 
@@ -113,27 +111,41 @@ public class PanelRocket extends JPanel {
             switch (jTextField.getName())
             {
                 case "TempMotor":
-                    jTextField.setText(loadData.getTempMotor());
+                    jTextField.setText(LoadData.getTempMotor());
+                    if(LoadData.getTempMotor().equals("null °c")){
+                        findIndicator("TempMotor").setLightColor(Color.red);
+                    }
                     break;
                 case "Magnetic":
-                    jTextField.setText(loadData.getMagnetic());
+                    jTextField.setText(LoadData.getMagnetic());
                     break;
                 case "Pressure":
-                    jTextField.setText(loadData.getPressure());
+                    jTextField.setText(LoadData.getPressure());
                     break;
                 case "Altimeter":
-                    jTextField.setText(loadData.getAltimeter());
+                    jTextField.setText(LoadData.getAltimeter());
                     break;
                 case "Accelerometer":
-                    jTextField.setText(loadData.getAccelerometer());
+                    jTextField.setText(LoadData.getAccelerometer());
                     break;
                 case "TempOgive":
-                    jTextField.setText(loadData.getTempOgive());
+                    jTextField.setText(LoadData.getTempOgive());
                     break;
                 default:
                     break;
             }
         }
+    }
+
+    private static LightIndicator findIndicator(String name){
+        LightIndicator lightIndicator = new LightIndicator();
+
+        for(LightIndicator l : lightIndicatorList){
+            if(l.getName().equals(name)){
+                lightIndicator = l;
+            }
+        }
+        return lightIndicator;
     }
 
     @Override

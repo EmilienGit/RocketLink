@@ -1,5 +1,6 @@
 package model;
 
+import data.LoadData;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
@@ -80,7 +81,6 @@ public class Pressure extends AbstractSensor implements  Runnable {
         long tempsDebut = System.currentTimeMillis();
         while (true) {
             try {
-
                 Thread.sleep(3000);
                 Random rand = new Random();
                 int value = rand.nextInt(100);
@@ -88,6 +88,8 @@ public class Pressure extends AbstractSensor implements  Runnable {
                 float secondsFloat = (tempsFin - tempsDebut) / 1000F;
                 int seconds = Math.round(secondsFloat);
                 data.setValue(value,name,Float.toString(seconds));
+                LoadData.setPressure(String.valueOf(value));
+                LoadData.update();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
