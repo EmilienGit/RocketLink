@@ -90,7 +90,7 @@ public class Pressure extends AbstractSensor implements  Runnable {
                 data.setValue(value,name,Float.toString(seconds));
                 String oldData = LoadData.getPressure();
                 LoadData.setPressure(String.valueOf(value));
-                LoadData.update(oldData);
+                LoadData.update("Pressure", oldData);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

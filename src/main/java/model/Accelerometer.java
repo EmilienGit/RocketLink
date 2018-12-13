@@ -63,7 +63,7 @@ public class Accelerometer extends AbstractSensor implements  Runnable {
                 data.setValue(value,name,Float.toString(seconds));
                 String oldData = LoadData.getAccelerometer();
                 LoadData.setAccelerometer(String.valueOf(value));
-                LoadData.update(oldData);
+                LoadData.update("Accelerometer", oldData);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

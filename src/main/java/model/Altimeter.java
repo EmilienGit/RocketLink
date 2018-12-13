@@ -62,7 +62,7 @@ public class Altimeter extends AbstractSensor implements  Runnable {
                 data.setValue(value,name,Float.toString(seconds));
                 String oldData = LoadData.getAltimeter();
                 LoadData.setAltimeter(String.valueOf(value));
-                LoadData.update(oldData);
+                LoadData.update("Altimeter", oldData);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

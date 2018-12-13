@@ -104,45 +104,49 @@ public class PanelRocket extends JPanel {
     /**
      * Update
      */
-    public static void update(String oldData) {
+    public static void update(String name, String oldData) {
         String[] splited;
-        for (JTextField jTextField : jTextFieldList) {
-            switch (jTextField.getName())
+        int placement = 0;
+        for (int i = 0; i < jTextFieldList.size(); i++) {
+            if(jTextFieldList.get(i).getName().equals(name)){
+                placement = i;
+            }
+        }
+            switch (name)
             {
                 case "TempMotor":
-                    jTextField.setText(LoadData.getTempMotor());
+                    jTextFieldList.get(placement).setText(LoadData.getTempMotor());
                     splited = LoadData.getTempMotor().split("\\s+");
-                    updateLightIndicator("TempMotor", oldData, splited);
+                    updateLightIndicator("TempMotor", splited, oldData);
                     break;
                 case "Magnetic":
-                    jTextField.setText(LoadData.getMagnetic());
+                    jTextFieldList.get(placement).setText(LoadData.getMagnetic());
                     splited = LoadData.getMagnetic().split("\\s+");
-                    updateLightIndicator("Magnetic", oldData, splited);
+                    updateLightIndicator("Magnetic", splited, oldData);
                     break;
                 case "Pressure":
-                    jTextField.setText(LoadData.getPressure());
+                    jTextFieldList.get(placement).setText(LoadData.getPressure());
                     splited = LoadData.getPressure().split("\\s+");
-                    updateLightIndicator("Pressure", oldData, splited);
+                    updateLightIndicator("Pressure", splited, oldData);
                     break;
                 case "Altimeter":
-                    jTextField.setText(LoadData.getAltimeter());
+                    jTextFieldList.get(placement).setText(LoadData.getAltimeter());
                     splited = LoadData.getAltimeter().split("\\s+");
-                    updateLightIndicator("Altimeter", oldData, splited);
+                    updateLightIndicator("Altimeter", splited, oldData);
                     break;
                 case "Accelerometer":
-                    jTextField.setText(LoadData.getAccelerometer());
+                    jTextFieldList.get(placement).setText(LoadData.getAccelerometer());
                     splited = LoadData.getAccelerometer().split("\\s+");
-                    updateLightIndicator("Accelerometer", oldData, splited);
+                    updateLightIndicator("Accelerometer", splited, oldData);
                     break;
                 case "TempOgive":
-                    jTextField.setText(LoadData.getTempOgive());
+                    jTextFieldList.get(placement).setText(LoadData.getTempOgive());
                     splited = LoadData.getTempOgive().split("\\s+");
-                    updateLightIndicator("TempOgive", oldData, splited);
+                    updateLightIndicator("TempOgive", splited, oldData);
                     break;
                 default:
                     break;
             }
-        }
     }
 
     private static LightIndicator findIndicator(String name){
@@ -156,11 +160,19 @@ public class PanelRocket extends JPanel {
         return lightIndicator;
     }
 
-    private static void updateLightIndicator(String name, String oldData, String[] splited){
-        if(splited[0].equals("null")){
+    private static void updateLightIndicator(String name, String[] splited, String oldData) {
+
+        if (splited[0].equals("null")) {
             findIndicator(name).setLightColor(Color.RED);
-        } else {
-            findIndicator(name).setLightColor(Color.GREEN);
+        }
+
+        if (oldData != null){
+            String[] splitedOldData = oldData.split("\\s+");
+            if (splitedOldData[0].equals(splited[0])) {
+                findIndicator(name).setLightColor(Color.ORANGE);
+            } else {
+                findIndicator(name).setLightColor(Color.GREEN);
+            }
         }
     }
 

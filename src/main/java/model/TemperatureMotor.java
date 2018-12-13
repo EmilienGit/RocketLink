@@ -96,7 +96,7 @@ public class TemperatureMotor extends AbstractSensor implements  Runnable {
                 data.setValue(value,name,Float.toString(seconds));
                 String oldData = LoadData.getTempMotor();
                 LoadData.setTempMotor(String.valueOf(value));
-                LoadData.update(oldData);
+                LoadData.update("TempMotor", oldData);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

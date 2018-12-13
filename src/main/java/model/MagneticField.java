@@ -63,7 +63,7 @@ public class MagneticField extends AbstractSensor implements  Runnable {
                 data.setValue(value,name,Float.toString(seconds));
                 String oldData = LoadData.getMagnetic();
                 LoadData.setMagnetic(String.valueOf(value));
-                LoadData.update(oldData);
+                LoadData.update("Magnetic", oldData);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

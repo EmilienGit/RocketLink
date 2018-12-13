@@ -91,7 +91,7 @@ public class TemperatureOgive extends AbstractSensor implements Runnable{
                 data.setValue(value,name,Float.toString(seconds));
                 String oldData = LoadData.getTempOgive();
                 LoadData.setTempOgive(String.valueOf(value));
-                LoadData.update(oldData);
+                LoadData.update("TempOgive", oldData);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
