@@ -90,6 +90,7 @@ public class TemperatureMotor extends AbstractSensor implements  Runnable {
                 Thread.sleep(3000);
                 Random rand = new Random();
                 int value = rand.nextInt(100);
+                
                 long tempsFin = System.currentTimeMillis();
                 float secondsFloat = (tempsFin - tempsDebut) / 1000F;
                 int seconds = Math.round(secondsFloat);
