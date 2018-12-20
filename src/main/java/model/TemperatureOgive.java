@@ -1,5 +1,6 @@
 package model;
 
+import data.LoadData;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
@@ -10,7 +11,7 @@ import java.util.Random;
 /**
  * @author Emilien
  */
-public class TemperatureOgive extends AbstractSensor implements Runnable {
+public class TemperatureOgive extends AbstractSensor implements Runnable{
 
     private DefaultCategoryDataset data = new DefaultCategoryDataset();
 
@@ -81,13 +82,16 @@ public class TemperatureOgive extends AbstractSensor implements Runnable {
         long tempsDebut = System.currentTimeMillis();
         while (true) {
             try {
+                Thread.sleep(5000);
                 Random rand = new Random();
                 int value = rand.nextInt(100);
                 long tempsFin = System.currentTimeMillis();
                 float secondsFloat = (tempsFin - tempsDebut) / 1000F;
                 int seconds = Math.round(secondsFloat);
                 data.setValue(value,name,Float.toString(seconds));
-                Thread.sleep(10000);
+                String oldData = LoadData.getTempOgive();
+                LoadData.setTempOgive(String.valueOf(value));
+                LoadData.update("TempOgive", oldData);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
