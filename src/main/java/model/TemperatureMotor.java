@@ -22,8 +22,6 @@ public class TemperatureMotor extends AbstractSensor implements  Runnable {
 
     private String name = "Teamperature";
 
-    private Timer timer;
-
     /**
      * Constructor
      */

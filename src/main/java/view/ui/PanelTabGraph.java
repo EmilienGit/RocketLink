@@ -25,18 +25,15 @@ public class PanelTabGraph extends JPanel {
     public PanelTabGraph() {
         setPreferredSize(new Dimension(DEFAULT_WIDTH,DEFAULT_HEIGHT));
         setBackground(DEFAULT_BACKGROUND_COLOR);
-
         init();
-
     }
 
     /**
      * Initialisation des panels
      */
     public void init() {
-        this.panelGraph = new PanelGraph();
+        panelGraph = new PanelGraph();
         this.panelToolBar = new PanelToolBar();
-
         this.add(this.panelToolBar,BorderLayout.WEST);
         this.add(this.panelGraph,BorderLayout.CENTER);
     }
