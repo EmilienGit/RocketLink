@@ -19,6 +19,7 @@ public class LoadData {
 
     private static String tempOgive;
 
+
     /**
      * Constructor
      */

@@ -7,6 +7,8 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 
 /**
+ * Class of the Frame of the software.
+ *
  * @author Emilien
  */
 public class FrameRocketLink extends javax.swing.JFrame {

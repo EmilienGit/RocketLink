@@ -1,15 +1,14 @@
 package model;
 
 import data.LoadData;
+import data.ReadCsv;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.data.category.DefaultCategoryDataset;
 
-import java.sql.Time;
 import java.util.Random;
 import java.util.Timer;
-import java.util.TimerTask;
 
 /**
  * @author Emilien
@@ -90,11 +89,12 @@ public class TemperatureMotor extends AbstractSensor implements  Runnable {
                 Thread.sleep(3000);
                 Random rand = new Random();
                 int value = rand.nextInt(100);
-                
                 long tempsFin = System.currentTimeMillis();
                 float secondsFloat = (tempsFin - tempsDebut) / 1000F;
                 int seconds = Math.round(secondsFloat);
                 data.setValue(value,name,Float.toString(seconds));
+                ReadCsv readCsv = new ReadCsv();
+                readCsv.findData();
                 String oldData = LoadData.getTempMotor();
                 LoadData.setTempMotor(String.valueOf(value));
                 LoadData.update("TempMotor", oldData);
