@@ -1,5 +1,6 @@
 package model;
 
+import data.LoadData;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
@@ -70,6 +71,9 @@ public class MagneticField extends AbstractSensor implements  Runnable {
                 float secondsFloat = (tempsFin - tempsDebut) / 1000F;
                 int seconds = Math.round(secondsFloat);
                 data.setValue(value,name,Float.toString(seconds));
+                String oldData = LoadData.getMagnetic();
+                LoadData.setMagnetic(String.valueOf(value));
+                LoadData.update("Magnetic", oldData);
                 Thread.sleep(10000);
             } catch (InterruptedException e) {
                 e.printStackTrace();

@@ -72,6 +72,9 @@ public class Accelerometer extends AbstractSensor implements  Runnable {
                 float secondsFloat = (tempsFin - tempsDebut) / 1000F;
                 int seconds = Math.round(secondsFloat);
                 data.setValue(value,name,Float.toString(seconds));
+                String oldData = LoadData.getAccelerometer();
+                LoadData.setAccelerometer(String.valueOf(value));
+                LoadData.update("Accelerometer", oldData);
                 Thread.sleep(10000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
