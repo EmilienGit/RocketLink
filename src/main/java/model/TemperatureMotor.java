@@ -11,7 +11,12 @@ import java.util.Random;
 import java.util.Timer;
 
 /**
+ * JFreeChart : a free chart library for the Java(tm) platform.
+ * This class manage the sensor TemperatureMotor.
+ *
  * @author Emilien
+ *
+ * <p>13 decembre 2018 : Version 1 (Emilien)</p>
  */
 public class TemperatureMotor extends AbstractSensor implements  Runnable {
     private DefaultCategoryDataset data = new DefaultCategoryDataset();
@@ -92,7 +97,6 @@ public class TemperatureMotor extends AbstractSensor implements  Runnable {
                 int seconds = Math.round(secondsFloat);
                 data.setValue(value,name,Float.toString(seconds));
                 ReadCsv readCsv = new ReadCsv();
-                readCsv.findData();
                 String oldData = LoadData.getTempMotor();
                 LoadData.setTempMotor(String.valueOf(value));
                 LoadData.update("TempMotor", oldData);

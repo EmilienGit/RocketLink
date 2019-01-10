@@ -17,7 +17,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * JFreeChart : a free chart library for the Java(tm) platform.
+ * This class manage the panel where graphs are.
+ *
  * @author Emilien
+ *
+ * <p>13 decembre 2018 : Version 1 (Emilien)</p>
  */
 public class PanelGraph extends JPanel {
     private static final int DEFAULT_WIDTH = 1015;

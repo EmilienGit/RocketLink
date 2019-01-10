@@ -3,7 +3,12 @@ import view.ui.FrameRocketLink;
 import view.ui.PanelGraph;
 
 /**
+ * JFreeChart : a free chart library for the Java(tm) platform.
+ * This class is the main of the application.
+ *
  * @author Emilien
+ *
+ * <p>13 decembre 2018 : Version 1 (Emilien)</p>
  */
 public class RocketLink {
 

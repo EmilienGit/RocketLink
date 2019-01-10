@@ -6,7 +6,12 @@ import java.awt.Color;
 import java.awt.Dimension;
 
 /**
+ * JFreeChart : a free chart library for the Java(tm) platform.
+ * This class manage the panel graph
+ *
  * @author Emilien
+ *
+ * <p>13 decembre 2018 : Version 1 (Emilien)</p>
  */
 public class PanelTabGraph extends JPanel {
     private static final int DEFAULT_WIDTH = 1000;

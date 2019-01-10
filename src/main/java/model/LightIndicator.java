@@ -61,7 +61,7 @@ public class LightIndicator extends JLabel {
 
     /**
      * Setter
-     * @param name the name
+     * @param name the name of le light indicator
      */
     public void setName(String name) {
         this.name = name;

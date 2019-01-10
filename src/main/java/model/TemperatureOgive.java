@@ -9,9 +9,14 @@ import org.jfree.data.category.DefaultCategoryDataset;
 import java.util.Random;
 
 /**
+ * JFreeChart : a free chart library for the Java(tm) platform.
+ * This class manage the sensor TemperatureOgive.
+ *
  * @author Emilien
+ *
+ * <p>13 decembre 2018 : Version 1 (Emilien)</p>
  */
-public class TemperatureOgive extends AbstractSensor implements Runnable{
+public class TemperatureOgive extends AbstractSensor implements Runnable {
 
     private DefaultCategoryDataset data = new DefaultCategoryDataset();
 

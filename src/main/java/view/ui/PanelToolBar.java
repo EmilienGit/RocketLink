@@ -14,7 +14,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
+ * JFreeChart : a free chart library for the Java(tm) platform.
+ * This class manage the  tools of the panel tab graph.
+ *
  * @author Emilien
+ *
+ * <p>13 decembre 2018 : Version 1 (Emilien)</p>
  */
 public class PanelToolBar extends JToolBar {
     public static final ButtonGroup group = new ButtonGroup();
