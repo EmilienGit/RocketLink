@@ -95,7 +95,9 @@ public class TemperatureMotor extends AbstractSensor implements  Runnable {
                 long tempsFin = System.currentTimeMillis();
                 float secondsFloat = (tempsFin - tempsDebut) / 1000F;
                 int seconds = Math.round(secondsFloat);
-                data.setValue(value,name,Float.toString(seconds));
+                if(value > 0 && value < 100) {
+                    data.setValue(value, name, Float.toString(seconds));
+                }
                 ReadCsv readCsv = new ReadCsv();
                 String oldData = LoadData.getTempMotor();
                 LoadData.setTempMotor(String.valueOf(value));

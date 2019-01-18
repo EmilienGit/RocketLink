@@ -70,7 +70,9 @@ public class Altimeter extends AbstractSensor implements  Runnable {
                 long tempsFin = System.currentTimeMillis();
                 float secondsFloat = (tempsFin - tempsDebut) / 1000F;
                 int seconds = Math.round(secondsFloat);
-                data.setValue(value,name,Float.toString(seconds));
+                if(value > 0 && value < 100) {
+                    data.setValue(value, name, Float.toString(seconds));
+                }
                 String oldData = LoadData.getAltimeter();
                 LoadData.setAltimeter(String.valueOf(value));
                 LoadData.update("Altimeter", oldData);
